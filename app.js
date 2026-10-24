@@ -277,6 +277,7 @@
     const entries = [];
     while (walker.nextNode()) {
       const node = walker.currentNode;
+      if (node.parentElement.closest('.hero-cross')) continue;
       const size = parseFloat(getComputedStyle(node.parentElement).fontSize);
       const characters = Array.from(node.textContent);
       let offset = 0;

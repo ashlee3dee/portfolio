@@ -216,6 +216,19 @@ h1 {
   transform:translateY(-.005em);
 }
 
+.hero-cross-symbol {
+  display:inline-block;
+  letter-spacing:0;
+  transform-origin:center;
+  transition:transform 500ms cubic-bezier(.22,1,.36,1);
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .hero-cross:hover .hero-cross-symbol {
+    transform:rotate(45deg);
+  }
+}
+
 .systems {
   letter-spacing:-.06em;
 }
