@@ -75,3 +75,10 @@ The complete scrape, downloaded images and videos, checksums, and download scrip
 live in `content/portfoliobox/`. See that folder's README for details. This source
 archive is separate from the editable website content; editing `projects.js`
 does not alter the archive.
+
+## Browser cache
+
+The deployment workflow versions the CSS and JavaScript URLs with the commit SHA,
+so visitors receive matching files after each update. Keep the `?v=...` query
+strings on the asset references in `index.html`. For an already-open page with
+stale styles, press Ctrl+Shift+R once to reload all files.
