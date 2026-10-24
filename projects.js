@@ -6,15 +6,15 @@
  * Source archive is preserved separately in content/portfoliobox/.
  */
 window.PORTFOLIO = {
-  "hero": "wipeout-inspired-racecraft",
+  "hero": "orbital-spaceport-i",
   "selected": [
     "city-of-tomorrow",
     "splatool-painterly-addon",
     "honkai-star-rail-your-new-reality",
-    "air-jordan-rare-air",
+    "white-retro-jordan",
     "procedural-generation-toolkit",
     "orbital-spaceport-i",
-    "painterly-worlds",
+    "product-renders-study-07",
     "brooklyn-broke-the-universe"
   ],
   "categories": [
@@ -52,7 +52,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/zqakUGo681q0YuDy.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=zqakUGo681q0YuDy",
       "fullImage": "./assets/work/zqakUGo681q0YuDy-full.webp",
-      "archiveId": "zqakUGo681q0YuDy"
+      "archiveId": "zqakUGo681q0YuDy",
+      "imageWidth": 1400,
+      "imageHeight": 1400,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1920
     },
     {
       "id": "concept-art-study-02",
@@ -62,7 +66,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/gMyO8ylgiXiWpniE.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=gMyO8ylgiXiWpniE",
       "fullImage": "./assets/work/gMyO8ylgiXiWpniE-full.webp",
-      "archiveId": "gMyO8ylgiXiWpniE"
+      "archiveId": "gMyO8ylgiXiWpniE",
+      "imageWidth": 1400,
+      "imageHeight": 1400,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1920
     },
     {
       "id": "concept-art-study-03",
@@ -72,7 +80,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/rIlizPGsely1mFVU.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=rIlizPGsely1mFVU",
       "fullImage": "./assets/work/rIlizPGsely1mFVU-full.webp",
-      "archiveId": "rIlizPGsely1mFVU"
+      "archiveId": "rIlizPGsely1mFVU",
+      "imageWidth": 933,
+      "imageHeight": 1400,
+      "fullImageWidth": 1280,
+      "fullImageHeight": 1920
     },
     {
       "id": "concept-art-study-04",
@@ -82,7 +94,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/i1MTVB7FJaxXerR2.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=i1MTVB7FJaxXerR2",
       "fullImage": "./assets/work/i1MTVB7FJaxXerR2-full.webp",
-      "archiveId": "i1MTVB7FJaxXerR2"
+      "archiveId": "i1MTVB7FJaxXerR2",
+      "imageWidth": 1400,
+      "imageHeight": 747,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1024
     },
     {
       "id": "city-of-tomorrow",
@@ -92,7 +108,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/lAIMkRZZkYmcUSxK.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=lAIMkRZZkYmcUSxK",
       "fullImage": "./assets/work/lAIMkRZZkYmcUSxK-full.webp",
-      "archiveId": "lAIMkRZZkYmcUSxK"
+      "archiveId": "lAIMkRZZkYmcUSxK",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "concept-art-study-06",
@@ -102,7 +122,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/rDvmIxz5pSxHkvBz.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=rDvmIxz5pSxHkvBz",
       "fullImage": "./assets/work/rDvmIxz5pSxHkvBz-full.webp",
-      "archiveId": "rDvmIxz5pSxHkvBz"
+      "archiveId": "rDvmIxz5pSxHkvBz",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1081
     },
     {
       "id": "offworld-outpost",
@@ -112,7 +136,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/yWGhSOTMmJQbzrgq.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=yWGhSOTMmJQbzrgq",
       "fullImage": "./assets/work/yWGhSOTMmJQbzrgq-full.webp",
-      "archiveId": "yWGhSOTMmJQbzrgq"
+      "archiveId": "yWGhSOTMmJQbzrgq",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "concept-art-study-08",
@@ -122,7 +150,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/undNPzNmhcWYNOcF.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=undNPzNmhcWYNOcF",
       "fullImage": "./assets/work/undNPzNmhcWYNOcF-full.webp",
-      "archiveId": "undNPzNmhcWYNOcF"
+      "archiveId": "undNPzNmhcWYNOcF",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "concept-art-study-09",
@@ -132,7 +164,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/p9vpEaAHQU5pUoOW.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=p9vpEaAHQU5pUoOW",
       "fullImage": "./assets/work/p9vpEaAHQU5pUoOW-full.webp",
-      "archiveId": "p9vpEaAHQU5pUoOW"
+      "archiveId": "p9vpEaAHQU5pUoOW",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "megacity-iii",
@@ -142,7 +178,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/IhOIpzJUFO7OHHsp.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=IhOIpzJUFO7OHHsp",
       "fullImage": "./assets/work/IhOIpzJUFO7OHHsp-full.webp",
-      "archiveId": "IhOIpzJUFO7OHHsp"
+      "archiveId": "IhOIpzJUFO7OHHsp",
+      "imageWidth": 1400,
+      "imageHeight": 791,
+      "fullImageWidth": 1900,
+      "fullImageHeight": 1073
     },
     {
       "id": "concept-art-study-11",
@@ -152,7 +192,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/U5JH2Da65eCvtQ7D.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=U5JH2Da65eCvtQ7D",
       "fullImage": "./assets/work/U5JH2Da65eCvtQ7D-full.webp",
-      "archiveId": "U5JH2Da65eCvtQ7D"
+      "archiveId": "U5JH2Da65eCvtQ7D",
+      "imageWidth": 1400,
+      "imageHeight": 1400,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1920
     },
     {
       "id": "concept-art-study-12",
@@ -164,7 +208,11 @@ window.PORTFOLIO = {
       "video": "g7d_frftp-E",
       "localVideo": "./content/portfoliobox/media/videos/g7d_frftp-E.mp4",
       "fullImage": "./assets/work/PtLhr4eXnS5XNJlB-full.webp",
-      "archiveId": "PtLhr4eXnS5XNJlB"
+      "archiveId": "PtLhr4eXnS5XNJlB",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1400,
+      "fullImageHeight": 788
     },
     {
       "id": "alien-relics",
@@ -174,7 +222,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/zeqCYmKwpB3fP1hJ.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=zeqCYmKwpB3fP1hJ",
       "fullImage": "./assets/work/zeqCYmKwpB3fP1hJ-full.webp",
-      "archiveId": "zeqCYmKwpB3fP1hJ"
+      "archiveId": "zeqCYmKwpB3fP1hJ",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "orbital-spaceport-i",
@@ -184,7 +236,12 @@ window.PORTFOLIO = {
       "image": "./assets/work/i3xrHnMZIxXWol7e.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=i3xrHnMZIxXWol7e",
       "fullImage": "./assets/work/i3xrHnMZIxXWol7e-full.webp",
-      "archiveId": "i3xrHnMZIxXWol7e"
+      "archiveId": "i3xrHnMZIxXWol7e",
+      "imageWidth": 1400,
+      "imageHeight": 1399,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1918,
+      "alt": "A monumental sculpted head covered in futuristic structures, surrounded by clouds and orbital traffic."
     },
     {
       "id": "concept-art-study-15",
@@ -194,7 +251,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/HNQSJn5GVKPwccGN.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=HNQSJn5GVKPwccGN",
       "fullImage": "./assets/work/HNQSJn5GVKPwccGN-full.webp",
-      "archiveId": "HNQSJn5GVKPwccGN"
+      "archiveId": "HNQSJn5GVKPwccGN",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "concept-art-study-16",
@@ -204,7 +265,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/Wx476JKxO9cDddUK.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=Wx476JKxO9cDddUK",
       "fullImage": "./assets/work/Wx476JKxO9cDddUK-full.webp",
-      "archiveId": "Wx476JKxO9cDddUK"
+      "archiveId": "Wx476JKxO9cDddUK",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "signal-tower",
@@ -214,7 +279,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/oc0tpzKi6ckOgFZW.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=oc0tpzKi6ckOgFZW",
       "fullImage": "./assets/work/oc0tpzKi6ckOgFZW-full.webp",
-      "archiveId": "oc0tpzKi6ckOgFZW"
+      "archiveId": "oc0tpzKi6ckOgFZW",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "orbital-space-port-i",
@@ -226,7 +295,11 @@ window.PORTFOLIO = {
       "video": "ilBHNYpYn7A",
       "localVideo": "./content/portfoliobox/media/videos/ilBHNYpYn7A.mp4",
       "fullImage": "./assets/work/q6UQPNNSf3jnplDc-full.webp",
-      "archiveId": "q6UQPNNSf3jnplDc"
+      "archiveId": "q6UQPNNSf3jnplDc",
+      "imageWidth": 1400,
+      "imageHeight": 1244,
+      "fullImageWidth": 1400,
+      "fullImageHeight": 1244
     },
     {
       "id": "interstellar-data-carrier",
@@ -236,7 +309,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/C9QRq6qqKxjRRqnQ.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=C9QRq6qqKxjRRqnQ",
       "fullImage": "./assets/work/C9QRq6qqKxjRRqnQ-full.webp",
-      "archiveId": "C9QRq6qqKxjRRqnQ"
+      "archiveId": "C9QRq6qqKxjRRqnQ",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "arcology-i",
@@ -246,7 +323,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/zNiiHFjirEw2zsPr.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=zNiiHFjirEw2zsPr",
       "fullImage": "./assets/work/zNiiHFjirEw2zsPr-full.webp",
-      "archiveId": "zNiiHFjirEw2zsPr"
+      "archiveId": "zNiiHFjirEw2zsPr",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "atmospheric-monitor",
@@ -256,7 +337,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/TM5RRMcoDB2XQkhc.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=TM5RRMcoDB2XQkhc",
       "fullImage": "./assets/work/TM5RRMcoDB2XQkhc-full.webp",
-      "archiveId": "TM5RRMcoDB2XQkhc"
+      "archiveId": "TM5RRMcoDB2XQkhc",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "remote-observation-unit",
@@ -266,7 +351,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/nqhhINejfLtpoW3e.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=nqhhINejfLtpoW3e",
       "fullImage": "./assets/work/nqhhINejfLtpoW3e-full.webp",
-      "archiveId": "nqhhINejfLtpoW3e"
+      "archiveId": "nqhhINejfLtpoW3e",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "concept-art-study-23",
@@ -276,7 +365,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/bKFuGqcyY0rm8xhG.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=bKFuGqcyY0rm8xhG",
       "fullImage": "./assets/work/bKFuGqcyY0rm8xhG-full.webp",
-      "archiveId": "bKFuGqcyY0rm8xhG"
+      "archiveId": "bKFuGqcyY0rm8xhG",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "central-processing-core",
@@ -286,7 +379,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/ssJDnYfB3QVejP15.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=ssJDnYfB3QVejP15",
       "fullImage": "./assets/work/ssJDnYfB3QVejP15-full.webp",
-      "archiveId": "ssJDnYfB3QVejP15"
+      "archiveId": "ssJDnYfB3QVejP15",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "wipeout-inspired-racecraft",
@@ -297,7 +394,11 @@ window.PORTFOLIO = {
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=lUpr8a62r5otkjci",
       "fullImage": "./assets/work/lUpr8a62r5otkjci-full.webp",
       "archiveId": "lUpr8a62r5otkjci",
-      "alt": "A futuristic racing craft with an orange canopy and white aerodynamic body"
+      "alt": "A futuristic racing craft with an orange canopy and white aerodynamic body",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "orbital-spaceport-i-pqyxspajnqd61hw",
@@ -307,7 +408,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/pQYxspAjNqd61Hw.webp",
       "source": "https://ashlee3dee.portfoliobox.net/concept-art?s=qpqqmwSc0HSaz1KQ&i=pQYxspAjNqd61Hw",
       "fullImage": "./assets/work/pQYxspAjNqd61Hw-full.webp",
-      "archiveId": "pQYxspAjNqd61Hw"
+      "archiveId": "pQYxspAjNqd61Hw",
+      "imageWidth": 1400,
+      "imageHeight": 795,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1091
     },
     {
       "id": "brooklyn-broke-the-universe",
@@ -319,7 +424,11 @@ window.PORTFOLIO = {
       "video": "UbEzHNl0hD4",
       "localVideo": "./content/portfoliobox/media/videos/UbEzHNl0hD4.mp4",
       "fullImage": "./assets/work/pGlTQYbGBigAqdBk-full.webp",
-      "archiveId": "pGlTQYbGBigAqdBk"
+      "archiveId": "pGlTQYbGBigAqdBk",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1400,
+      "fullImageHeight": 788
     },
     {
       "id": "dc-heroes-united",
@@ -331,7 +440,11 @@ window.PORTFOLIO = {
       "video": "TT6zcWEgJHE",
       "localVideo": "./content/portfoliobox/media/videos/TT6zcWEgJHE.mp4",
       "fullImage": "./assets/work/vWf1AXEZXGgC5VbV-full.webp",
-      "archiveId": "vWf1AXEZXGgC5VbV"
+      "archiveId": "vWf1AXEZXGgC5VbV",
+      "imageWidth": 1400,
+      "imageHeight": 783,
+      "fullImageWidth": 1400,
+      "fullImageHeight": 783
     },
     {
       "id": "honkai-star-rail-your-new-reality",
@@ -343,7 +456,11 @@ window.PORTFOLIO = {
       "video": "bq-At1tZQxg",
       "localVideo": "./content/portfoliobox/media/videos/bq-At1tZQxg.mp4",
       "fullImage": "./assets/work/KMWy9RW6jW4In2j2-full.webp",
-      "archiveId": "KMWy9RW6jW4In2j2"
+      "archiveId": "KMWy9RW6jW4In2j2",
+      "imageWidth": 1400,
+      "imageHeight": 774,
+      "fullImageWidth": 1400,
+      "fullImageHeight": 774
     },
     {
       "id": "character-studies",
@@ -353,7 +470,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/Cy6ZjDDS0GizMEsR.webp",
       "source": "https://ashlee3dee.portfoliobox.net/product-design?s=qWWHYv5WGuwUrBLY&i=Cy6ZjDDS0GizMEsR",
       "fullImage": "./assets/work/Cy6ZjDDS0GizMEsR-full.webp",
-      "archiveId": "Cy6ZjDDS0GizMEsR"
+      "archiveId": "Cy6ZjDDS0GizMEsR",
+      "imageWidth": 1400,
+      "imageHeight": 646,
+      "fullImageWidth": 1588,
+      "fullImageHeight": 733
     },
     {
       "id": "cosmetic-study",
@@ -363,7 +484,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/PtV0gSE4pUX5u42I.webp",
       "source": "https://ashlee3dee.portfoliobox.net/product-design?s=qWWHYv5WGuwUrBLY&i=PtV0gSE4pUX5u42I",
       "fullImage": "./assets/work/PtV0gSE4pUX5u42I-full.webp",
-      "archiveId": "PtV0gSE4pUX5u42I"
+      "archiveId": "PtV0gSE4pUX5u42I",
+      "imageWidth": 1080,
+      "imageHeight": 1080,
+      "fullImageWidth": 1080,
+      "fullImageHeight": 1080
     },
     {
       "id": "red-jordan",
@@ -375,7 +500,11 @@ window.PORTFOLIO = {
       "video": "Ge6yBvRUl1s",
       "localVideo": "./content/portfoliobox/media/videos/Ge6yBvRUl1s.mp4",
       "fullImage": "./assets/work/xvGsPKKhzQikwu2U-full.webp",
-      "archiveId": "xvGsPKKhzQikwu2U"
+      "archiveId": "xvGsPKKhzQikwu2U",
+      "imageWidth": 1053,
+      "imageHeight": 1400,
+      "fullImageWidth": 1079,
+      "fullImageHeight": 1435
     },
     {
       "id": "white-retro-jordan",
@@ -387,7 +516,11 @@ window.PORTFOLIO = {
       "video": "zTdPqgbEkWA",
       "localVideo": "./content/portfoliobox/media/videos/zTdPqgbEkWA.mp4",
       "fullImage": "./assets/work/IJTmTjRXNp9zfUOJ-full.webp",
-      "archiveId": "IJTmTjRXNp9zfUOJ"
+      "archiveId": "IJTmTjRXNp9zfUOJ",
+      "imageWidth": 1047,
+      "imageHeight": 1400,
+      "fullImageWidth": 1078,
+      "fullImageHeight": 1442
     },
     {
       "id": "air-jordan-rare-air",
@@ -397,7 +530,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/SyqT1Rmgtscg6Dve.webp",
       "source": "https://ashlee3dee.portfoliobox.net/product-design?s=qWWHYv5WGuwUrBLY&i=SyqT1Rmgtscg6Dve",
       "fullImage": "./assets/work/SyqT1Rmgtscg6Dve-full.webp",
-      "archiveId": "SyqT1Rmgtscg6Dve"
+      "archiveId": "SyqT1Rmgtscg6Dve",
+      "imageWidth": 1400,
+      "imageHeight": 1400,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1920
     },
     {
       "id": "product-renders-study-06",
@@ -407,7 +544,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/NunD5ep649G516mu.webp",
       "source": "https://ashlee3dee.portfoliobox.net/product-design?s=qWWHYv5WGuwUrBLY&i=NunD5ep649G516mu",
       "fullImage": "./assets/work/NunD5ep649G516mu-full.webp",
-      "archiveId": "NunD5ep649G516mu"
+      "archiveId": "NunD5ep649G516mu",
+      "imageWidth": 1080,
+      "imageHeight": 1080,
+      "fullImageWidth": 1080,
+      "fullImageHeight": 1080
     },
     {
       "id": "product-renders-study-07",
@@ -417,7 +558,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/dkWjRXK6LlvQztrx.webp",
       "source": "https://ashlee3dee.portfoliobox.net/product-design?s=qWWHYv5WGuwUrBLY&i=dkWjRXK6LlvQztrx",
       "fullImage": "./assets/work/dkWjRXK6LlvQztrx-full.webp",
-      "archiveId": "dkWjRXK6LlvQztrx"
+      "archiveId": "dkWjRXK6LlvQztrx",
+      "imageWidth": 787,
+      "imageHeight": 1400,
+      "fullImageWidth": 1080,
+      "fullImageHeight": 1920
     },
     {
       "id": "product-renders-study-08",
@@ -427,7 +572,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/sbMroixIeA9BCQ2O.webp",
       "source": "https://ashlee3dee.portfoliobox.net/product-design?s=qWWHYv5WGuwUrBLY&i=sbMroixIeA9BCQ2O",
       "fullImage": "./assets/work/sbMroixIeA9BCQ2O-full.webp",
-      "archiveId": "sbMroixIeA9BCQ2O"
+      "archiveId": "sbMroixIeA9BCQ2O",
+      "imageWidth": 1080,
+      "imageHeight": 1080,
+      "fullImageWidth": 1080,
+      "fullImageHeight": 1080
     },
     {
       "id": "procedural-generation-toolkit",
@@ -437,7 +586,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/JCGhVFs1EYt6s9sl.webp",
       "source": "https://ashlee3dee.portfoliobox.net/tool-development?s=ynOtI5yvncDiUuUG&i=JCGhVFs1EYt6s9sl",
       "fullImage": "./assets/work/JCGhVFs1EYt6s9sl-full.webp",
-      "archiveId": "JCGhVFs1EYt6s9sl"
+      "archiveId": "JCGhVFs1EYt6s9sl",
+      "imageWidth": 1400,
+      "imageHeight": 497,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 682
     },
     {
       "id": "splatool-painterly-addon",
@@ -447,7 +600,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/jagAE166imZzKwMO.webp",
       "source": "https://ashlee3dee.portfoliobox.net/tool-development?s=ynOtI5yvncDiUuUG&i=jagAE166imZzKwMO",
       "fullImage": "./assets/work/jagAE166imZzKwMO-full.webp",
-      "archiveId": "jagAE166imZzKwMO"
+      "archiveId": "jagAE166imZzKwMO",
+      "imageWidth": 1200,
+      "imageHeight": 600,
+      "fullImageWidth": 1200,
+      "fullImageHeight": 600
     },
     {
       "id": "hydraulic-terrain-erosion",
@@ -459,7 +616,11 @@ window.PORTFOLIO = {
       "video": "RzymGWI4FPg",
       "localVideo": "./content/portfoliobox/media/videos/RzymGWI4FPg.mp4",
       "fullImage": "./assets/work/krAkmCQKZRDsBUWT-full.webp",
-      "archiveId": "krAkmCQKZRDsBUWT"
+      "archiveId": "krAkmCQKZRDsBUWT",
+      "imageWidth": 1080,
+      "imageHeight": 1080,
+      "fullImageWidth": 1080,
+      "fullImageHeight": 1080
     },
     {
       "id": "lookdev-study-01",
@@ -469,7 +630,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/fZAaVt0ZnN8BohnX.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=fZAaVt0ZnN8BohnX",
       "fullImage": "./assets/work/fZAaVt0ZnN8BohnX-full.webp",
-      "archiveId": "fZAaVt0ZnN8BohnX"
+      "archiveId": "fZAaVt0ZnN8BohnX",
+      "imageWidth": 1400,
+      "imageHeight": 933,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1280
     },
     {
       "id": "lookdev-study-02",
@@ -481,7 +646,11 @@ window.PORTFOLIO = {
       "video": "vyWEA4o-GZw",
       "localVideo": "./content/portfoliobox/media/videos/vyWEA4o-GZw.mp4",
       "fullImage": "./assets/work/ZRhPEaQkX7I1oHs1-full.webp",
-      "archiveId": "ZRhPEaQkX7I1oHs1"
+      "archiveId": "ZRhPEaQkX7I1oHs1",
+      "imageWidth": 1008,
+      "imageHeight": 1346,
+      "fullImageWidth": 1008,
+      "fullImageHeight": 1346
     },
     {
       "id": "painterly-worlds",
@@ -493,7 +662,11 @@ window.PORTFOLIO = {
       "video": "eQWZTTuf7pg",
       "localVideo": "./content/portfoliobox/media/videos/eQWZTTuf7pg.mp4",
       "fullImage": "./assets/work/EMvlee9ALBNnIGiS-full.webp",
-      "archiveId": "EMvlee9ALBNnIGiS"
+      "archiveId": "EMvlee9ALBNnIGiS",
+      "imageWidth": 1080,
+      "imageHeight": 1080,
+      "fullImageWidth": 1080,
+      "fullImageHeight": 1080
     },
     {
       "id": "lookdev-study-04",
@@ -503,7 +676,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/VLWeXUachmjmk6HM.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=VLWeXUachmjmk6HM",
       "fullImage": "./assets/work/VLWeXUachmjmk6HM-full.webp",
-      "archiveId": "VLWeXUachmjmk6HM"
+      "archiveId": "VLWeXUachmjmk6HM",
+      "imageWidth": 1400,
+      "imageHeight": 788,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1080
     },
     {
       "id": "honkai-stair-rail",
@@ -513,7 +690,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/gANal1OBnuAod7cC.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=gANal1OBnuAod7cC",
       "fullImage": "./assets/work/gANal1OBnuAod7cC-full.webp",
-      "archiveId": "gANal1OBnuAod7cC"
+      "archiveId": "gANal1OBnuAod7cC",
+      "imageWidth": 1400,
+      "imageHeight": 774,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1062
     },
     {
       "id": "bloom-2",
@@ -523,7 +704,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/Os9PYDFintTjqOFJ.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=Os9PYDFintTjqOFJ",
       "fullImage": "./assets/work/Os9PYDFintTjqOFJ-full.webp",
-      "archiveId": "Os9PYDFintTjqOFJ"
+      "archiveId": "Os9PYDFintTjqOFJ",
+      "imageWidth": 1400,
+      "imageHeight": 871,
+      "fullImageWidth": 1499,
+      "fullImageHeight": 933
     },
     {
       "id": "lookdev-study-07",
@@ -533,7 +718,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/nt1xgioYosFID9hd.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=nt1xgioYosFID9hd",
       "fullImage": "./assets/work/nt1xgioYosFID9hd-full.webp",
-      "archiveId": "nt1xgioYosFID9hd"
+      "archiveId": "nt1xgioYosFID9hd",
+      "imageWidth": 1400,
+      "imageHeight": 1400,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1920
     },
     {
       "id": "lookdev-study-08",
@@ -543,7 +732,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/br4vDoTNLCVaSB3W.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=br4vDoTNLCVaSB3W",
       "fullImage": "./assets/work/br4vDoTNLCVaSB3W-full.webp",
-      "archiveId": "br4vDoTNLCVaSB3W"
+      "archiveId": "br4vDoTNLCVaSB3W",
+      "imageWidth": 1400,
+      "imageHeight": 1400,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1920
     },
     {
       "id": "lookdev-study-09",
@@ -553,7 +746,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/FOEUodBDLzNMs24P.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=FOEUodBDLzNMs24P",
       "fullImage": "./assets/work/FOEUodBDLzNMs24P-full.webp",
-      "archiveId": "FOEUodBDLzNMs24P"
+      "archiveId": "FOEUodBDLzNMs24P",
+      "imageWidth": 933,
+      "imageHeight": 1400,
+      "fullImageWidth": 1280,
+      "fullImageHeight": 1920
     },
     {
       "id": "lookdev-study-10",
@@ -563,7 +760,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/fICj5sinF7N2214j.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=fICj5sinF7N2214j",
       "fullImage": "./assets/work/fICj5sinF7N2214j-full.webp",
-      "archiveId": "fICj5sinF7N2214j"
+      "archiveId": "fICj5sinF7N2214j",
+      "imageWidth": 1050,
+      "imageHeight": 1400,
+      "fullImageWidth": 1440,
+      "fullImageHeight": 1920
     },
     {
       "id": "lookdev-study-11",
@@ -573,7 +774,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/O7Zu8G4rIZi8H8vJ.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=O7Zu8G4rIZi8H8vJ",
       "fullImage": "./assets/work/O7Zu8G4rIZi8H8vJ-full.webp",
-      "archiveId": "O7Zu8G4rIZi8H8vJ"
+      "archiveId": "O7Zu8G4rIZi8H8vJ",
+      "imageWidth": 1400,
+      "imageHeight": 933,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1279
     },
     {
       "id": "lookdev-study-12",
@@ -583,7 +788,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/foQMOaBR0mgeRgX6.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=foQMOaBR0mgeRgX6",
       "fullImage": "./assets/work/foQMOaBR0mgeRgX6-full.webp",
-      "archiveId": "foQMOaBR0mgeRgX6"
+      "archiveId": "foQMOaBR0mgeRgX6",
+      "imageWidth": 787,
+      "imageHeight": 1400,
+      "fullImageWidth": 1080,
+      "fullImageHeight": 1920
     },
     {
       "id": "lookdev-study-13",
@@ -593,7 +802,11 @@ window.PORTFOLIO = {
       "image": "./assets/work/NeLOkvwqEGlQP91T.webp",
       "source": "https://ashlee3dee.portfoliobox.net/lookdev?s=TuhZVyVLrl2WAY9&i=NeLOkvwqEGlQP91T",
       "fullImage": "./assets/work/NeLOkvwqEGlQP91T-full.webp",
-      "archiveId": "NeLOkvwqEGlQP91T"
+      "archiveId": "NeLOkvwqEGlQP91T",
+      "imageWidth": 1400,
+      "imageHeight": 867,
+      "fullImageWidth": 1920,
+      "fullImageHeight": 1189
     },
     {
       "id": "before-closure",
@@ -604,7 +817,11 @@ window.PORTFOLIO = {
       "source": "https://ashlee3dee.portfoliobox.net/game-art",
       "link": "https://store.steampowered.com/app/3595320/Before_Closure/",
       "fullImage": "./assets/work/sdhcqZWV67842NFY-full.webp",
-      "archiveId": "sdhcqZWV67842NFY"
+      "archiveId": "sdhcqZWV67842NFY",
+      "imageWidth": 460,
+      "imageHeight": 215,
+      "fullImageWidth": 460,
+      "fullImageHeight": 215
     },
     {
       "id": "project-gilgamesh",
@@ -615,7 +832,12 @@ window.PORTFOLIO = {
       "source": "https://ashlee3dee.portfoliobox.net/game-art",
       "link": "https://steamcommunity.com/app/3963080/?curator_clanid=4777282&utm_source=SteamDB#scrollTop=0",
       "fullImage": "./assets/work/cdiZXDDWTATHqEMY-full.webp",
-      "archiveId": "cdiZXDDWTATHqEMY"
+      "archiveId": "cdiZXDDWTATHqEMY",
+      "imageWidth": 460,
+      "imageHeight": 215,
+      "fullImageWidth": 460,
+      "fullImageHeight": 215
     }
-  ]
+  ],
+  "heroPosition": "50% 60%"
 };

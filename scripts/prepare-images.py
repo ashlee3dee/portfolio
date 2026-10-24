@@ -28,6 +28,7 @@ for project in data['projects']:
             image.thumbnail((max_size,max_size),Image.Resampling.LANCZOS)
             name = project.get('archiveId', project['id']) + ('-full' if field == 'fullImage' else '') + '.webp'
             image.save(out/name,'WEBP',quality=quality,method=6)
+            project[field + 'Width'], project[field + 'Height'] = image.size
         project[field] = './assets/work/' + name
     project.pop('localImage',None)
     project.pop('localFull',None)

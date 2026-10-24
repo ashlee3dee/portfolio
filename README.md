@@ -23,7 +23,9 @@ Run `python -m http.server 8000 --bind localhost` in this folder and open
 At the top of `projects.js`, `selected` is the ordered list of project IDs shown
 on the homepage. Move IDs to reorder the work. Add or remove IDs to change the
 selection. The `hero` ID controls the large featured image, title, and category.
-Add an `alt` field to its project for a more descriptive image label.
+Add an `alt` field to its project for a more descriptive image label. The banner
+is cropped; `heroPosition` (for example `"50% 60%"`) sets its focal point.
+The gallery and expanded viewer continue to show the complete artwork.
 
 ### Add or edit a project
 
@@ -113,3 +115,13 @@ Use title case for artwork and project names, sentence case for interface labels
 headings, and role descriptions. Preserve official names, acronyms, and the
 intentional lowercase ashlee3dee / 3d branding. Uppercase display treatments
 are controlled in CSS.
+
+## Adaptive gallery
+
+The gallery groups images into justified rows using each image’s aspect ratio.
+Portraits get narrower tiles; landscapes get wider tiles. Images are never
+cropped. Row breaks update automatically when filtering or resizing, with a
+single column on narrow screens. `imageWidth` and `imageHeight` reserve space
+before images load; new images without these fields are measured on load.
+Adjust `targetHeight` and `maxPerRow` in `layoutProjects()` in `app.js` to tune
+the tiling. Project order remains the order in `projects.js`.

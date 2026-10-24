@@ -18,18 +18,25 @@
   function imageElement(project, full = false) {
     const img = document.createElement('img');
     img.alt = project.alt || project.title;
+    const prefix = full && project.fullImage ? 'fullImage' : 'image';
+    if (project[prefix + 'Width'] && project[prefix + 'Height']) {
+      img.width = project[prefix + 'Width'];
+      img.height = project[prefix + 'Height'];
+    }
     img.src = imageURL(project, full);
     img.addEventListener('error', () => { img.src = full ? project.fullImage || project.image : project.image; }, { once: true });
     return img;
   }
   const hero = all.find(p => p.id === data.hero);
   const heroImg = document.querySelector('#hero-image');
-  heroImg.src = imageURL(hero);
+  heroImg.src = imageURL(hero, true);
+  heroImg.style.objectPosition = data.heroPosition || '50% 50%';
+  if (hero.imageWidth && hero.imageHeight) { heroImg.width = hero.imageWidth; heroImg.height = hero.imageHeight; }
   heroImg.alt = hero.alt || hero.title;
   document.querySelector('#hero-project').setAttribute('aria-label', `View ${hero.title}`);
   document.querySelector('#feature-title').textContent = hero.title;
   document.querySelector('#feature-type').textContent = data.categories.find(c => c.id === hero.category).name;
-  heroImg.addEventListener('error', () => { heroImg.src = hero.image; }, { once: true });
+  heroImg.addEventListener('error', () => { heroImg.src = hero.fullImage || hero.image; }, { once: true });
   document.querySelector('#hero-project').addEventListener('click', () => openProject(hero.id));
   const filters = [{ id: 'selected', label: 'Selected' }, { id: 'all', label: 'All work' }, ...data.categories.map(c => ({ id: c.id, label: c.name }))];
   for (const item of filters) {
@@ -38,21 +45,84 @@
     button.addEventListener('click', () => { filter = item.id; render(); });
     document.querySelector('#filters').append(button);
   }
+  // Justified rows: group images by aspect ratio, then give each row a shared
+  // image height. DOM order stays unchanged for keyboard and screen-reader users.
+  function layoutProjects() {
+    const tiles = [...grid.children];
+    const width = Math.floor(grid.getBoundingClientRect().width);
+    const gap = parseFloat(getComputedStyle(grid).columnGap) || 22;
+    if (!width || !tiles.length) return;
+    if (width < 560) {
+      for (const tile of tiles) tile.style.setProperty('--tile-width', '100%');
+      return;
+    }
+    const ratios = tiles.map(tile => Number(tile.dataset.ratio) || 1.5);
+    const targetHeight = Math.max(220, Math.min(340, width * 0.25));
+    const maxPerRow = Math.max(2, Math.min(5, Math.floor(width / 200)));
+    const costs = Array(tiles.length + 1).fill(Infinity);
+    const breaks = Array(tiles.length);
+    costs[tiles.length] = 0;
+    // Choose row breaks that avoid extreme heights and tiny, unreadable tiles.
+    for (let start = tiles.length - 1; start >= 0; start--) {
+      let ratioSum = 0;
+      for (let count = 1; count <= maxPerRow && start + count <= tiles.length; count++) {
+        ratioSum += ratios[start + count - 1];
+        const end = start + count;
+        const idealHeight = (width - gap * (count - 1)) / ratioSum;
+        const last = end === tiles.length;
+        const height = last ? Math.min(idealHeight, targetHeight * 1.15) : idealHeight;
+        let cost = Math.log(height / targetHeight) ** 2;
+        if (count === 1 && tiles.length > 1) cost += 0.65;
+        if (height > targetHeight * 1.6) cost += 4;
+        for (let index = start; index < end; index++) {
+          if (ratios[index] * height < 170) cost += 1;
+        }
+        if (last) cost += (1 - (height * ratioSum + gap * (count - 1)) / width) * 0.6;
+        cost += costs[end];
+        if (cost < costs[start]) { costs[start] = cost; breaks[start] = { end, height }; }
+      }
+    }
+    for (let start = 0; start < tiles.length;) {
+      const row = breaks[start];
+      for (let index = start; index < row.end; index++) {
+        // Round downward so fractional pixels cannot push the last tile to a new row.
+        const tileWidth = Math.floor(ratios[index] * row.height * 100) / 100;
+        tiles[index].style.setProperty('--tile-width', `${tileWidth}px`);
+      }
+      start = row.end;
+    }
+  }
+  let layoutFrame = 0;
+  function scheduleLayout() {
+    cancelAnimationFrame(layoutFrame);
+    layoutFrame = requestAnimationFrame(layoutProjects);
+  }
+  new ResizeObserver(scheduleLayout).observe(grid);
+  document.fonts.ready.then(scheduleLayout);
   function render() {
+    stopImageMark();
     visible = filter === 'selected' ? data.selected.map(id => all.find(p => p.id === id)).filter(Boolean) : all.filter(p => filter === 'all' || p.category === filter);
     for (const button of document.querySelectorAll('.filter')) button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
     grid.replaceChildren();
     for (const project of visible) {
       const article = document.createElement('article'); article.className = 'project';
+      article.dataset.ratio = project.imageWidth && project.imageHeight ? project.imageWidth / project.imageHeight : 1.5;
       const button = document.createElement('button'); button.className = 'project-button'; button.setAttribute('aria-label', `View ${project.title}`);
       const imageWrap = document.createElement('div'); imageWrap.className = 'project-image';
-      const img = imageElement(project); img.loading = 'lazy'; img.decoding = 'async'; imageWrap.append(img);
+      const img = imageElement(project); img.loading = 'lazy'; img.decoding = 'async';
+      img.addEventListener('load', () => {
+        if (img.naturalWidth && img.naturalHeight) {
+          article.dataset.ratio = img.naturalWidth / img.naturalHeight;
+          scheduleLayout();
+        }
+      });
+      imageWrap.append(img);
       const arrow = document.createElement('span');
       arrow.className = 'project-zoom';
       arrow.setAttribute('aria-hidden', 'true');
-      const mark = document.createElement('sup');
-      mark.className = 'dimension-mark';
-      mark.textContent = '3d';
+      const mark = document.createElement('span');
+      mark.className = 'image-mark';
+      mark.textContent = '×';
       arrow.append(mark);
       imageWrap.append(arrow);
       if (project.video) { const label = document.createElement('span'); label.className = 'media-label'; label.textContent = '▶ Motion'; imageWrap.append(label); }
@@ -63,6 +133,7 @@
       text.append(title, category); caption.append(text, number); button.append(imageWrap, caption);
       button.addEventListener('click', () => openProject(project.id)); article.append(button); grid.append(article);
     }
+    layoutProjects();
     document.querySelector('#result-count').textContent = `${String(visible.length).padStart(2, '0')} / ${all.length} works`;
     document.querySelector('#archive-toggle').innerHTML = filter === 'selected' ? 'View all work <sup class="dimension-mark" aria-hidden="true">3d</sup>' : 'Back to selected work <sup class="dimension-mark" aria-hidden="true">3d</sup>';
   }
@@ -96,6 +167,37 @@
   dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
   dialog.addEventListener('keydown', event => { if (event.target.tagName === 'VIDEO') return; if (event.key === 'ArrowRight') { event.preventDefault(); changeProject(1); } if (event.key === 'ArrowLeft') { event.preventDefault(); changeProject(-1); } });
   document.querySelector('#archive-toggle').addEventListener('click', () => { filter = filter === 'selected' ? 'all' : 'selected'; render(); document.querySelector('#work').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); });
+  // One delegated hover handler also covers tiles recreated by category filters.
+  const markMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let activeMark = null;
+  function stopImageMark() {
+    if (!activeMark) return;
+    clearInterval(activeMark.timer);
+    activeMark = null;
+  }
+  document.addEventListener('pointerover', event => {
+    const container = event.target.closest('.project-image, .feature-button');
+    const mark = container?.querySelector('.image-mark');
+    if (!mark || markMotion.matches || event.pointerType === 'touch' || activeMark?.element === mark) return;
+    stopImageMark();
+    const fonts = ['"IBM Plex Mono", monospace', 'Georgia, serif', 'Impact, sans-serif',
+      '"Times New Roman", serif', '"Trebuchet MS", sans-serif', '"Space Grotesk", sans-serif'];
+    let last = fonts.length - 1;
+    function changeFont() {
+      last = (last + 1 + Math.floor(Math.random() * (fonts.length - 1))) % fonts.length;
+      mark.style.fontFamily = fonts[last];
+    }
+    changeFont();
+    activeMark = { element: mark, container, timer: setInterval(changeFont, 110) };
+  });
+  document.addEventListener('pointerout', event => {
+    if (activeMark && activeMark.container.contains(event.target) &&
+        !activeMark.container.contains(event.relatedTarget)) stopImageMark();
+  });
+  window.addEventListener('blur', stopImageMark);
+  window.addEventListener('pagehide', stopImageMark);
+  markMotion.addEventListener('change', stopImageMark);
+
   // Per-character font glitch. Invisible original glyphs keep the layout stable.
   function setupHeadlineGlitch() {
     const heading = document.querySelector('#hero-title');
