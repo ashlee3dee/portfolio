@@ -96,6 +96,79 @@
   dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
   dialog.addEventListener('keydown', event => { if (event.target.tagName === 'VIDEO') return; if (event.key === 'ArrowRight') { event.preventDefault(); changeProject(1); } if (event.key === 'ArrowLeft') { event.preventDefault(); changeProject(-1); } });
   document.querySelector('#archive-toggle').addEventListener('click', () => { filter = filter === 'selected' ? 'all' : 'selected'; render(); document.querySelector('#work').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); });
+  // Per-character font glitch. Invisible original glyphs keep the layout stable.
+  function setupHeadlineGlitch() {
+    const heading = document.querySelector('#hero-title');
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const canHover = matchMedia('(hover: hover) and (pointer: fine)');
+    const fonts = ['"IBM Plex Mono", monospace', 'Arial, sans-serif',
+      'Georgia, serif', 'Impact, sans-serif', '"Times New Roman", serif',
+      '"Trebuchet MS", sans-serif', '"Space Grotesk", sans-serif'];
+    let active = null;
+    function stop() {
+      if (!active) return;
+      clearInterval(active.timer);
+      active.glyph.style.fontFamily = '';
+      active = null;
+    }
+    // Measure every original character before changing the DOM, retaining tracking.
+    const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+    const entries = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const size = parseFloat(getComputedStyle(node.parentElement).fontSize);
+      const characters = Array.from(node.textContent);
+      let offset = 0;
+      const widths = characters.map(character => {
+        const range = document.createRange();
+        range.setStart(node, offset);
+        offset += character.length;
+        range.setEnd(node, offset);
+        return range.getBoundingClientRect().width / size;
+      });
+      entries.push({ node, characters, widths });
+    }
+    heading.setAttribute('aria-label', 'Art × Systems');
+    for (const { node, characters, widths } of entries) {
+      const fragment = document.createDocumentFragment();
+      characters.forEach((character, index) => {
+        const cell = document.createElement('span');
+        cell.className = 'glitch-character';
+        cell.style.width = `${widths[index]}em`;
+        cell.setAttribute('aria-hidden', 'true');
+        const original = document.createElement('span');
+        original.className = 'glitch-original';
+        original.textContent = character;
+        const glyph = document.createElement('span');
+        glyph.className = 'glitch-glyph';
+        glyph.textContent = character;
+        cell.append(original, glyph);
+        cell.addEventListener('pointerenter', () => {
+          if (reduceMotion.matches || !canHover.matches) return;
+          stop();
+          let lastFont = -1;
+          const switchFont = () => {
+            // Pick a different family on every tick.
+            const next = (lastFont + 1 + Math.floor(Math.random() * (fonts.length - 1))) % fonts.length;
+            lastFont = next;
+            glyph.style.fontFamily = fonts[next];
+          };
+          switchFont();
+          active = { glyph, timer: setInterval(switchFont, 110) };
+        });
+        cell.addEventListener('pointerleave', stop);
+        cell.addEventListener('pointercancel', stop);
+        fragment.append(cell);
+      });
+      node.replaceWith(fragment);
+    }
+    heading.addEventListener('pointerleave', stop);
+    window.addEventListener('blur', stop);
+    window.addEventListener('pagehide', stop);
+    reduceMotion.addEventListener('change', stop);
+    canHover.addEventListener('change', stop);
+  }
+  document.fonts.ready.then(setupHeadlineGlitch);
   document.querySelector('#year').textContent = new Date().getFullYear();
   render();
 })();

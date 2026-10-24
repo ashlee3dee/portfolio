@@ -98,3 +98,11 @@ Space Grotesk is used for headings, body copy, and the wordmark. IBM Plex Mono
 is used for metadata and the 3d signature. Both families are self-hosted in
 `assets/fonts/`, with their open licenses. Edit `--sans` and `--mono` in
 `styles.css` to change the pairing.
+
+## Headline hover effect
+
+Hover an individual character in Art × Systems to cycle its font. The original
+font returns on pointer exit. Character widths stay fixed to prevent layout
+shifts. The effect is disabled on touch-only devices and for reduced-motion
+preferences. Edit the `fonts` list and the 110 ms interval inside
+`setupHeadlineGlitch()` in `app.js` to adjust it.

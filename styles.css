@@ -189,6 +189,24 @@ h1 {
   margin:53px 0 29px;
 }
 
+/* Hover swaps only the visible overlay; original glyph metrics stay intact. */
+.glitch-character {
+  display:inline-block;
+  position:relative;
+  vertical-align:baseline;
+}
+
+.glitch-original {
+  visibility:hidden;
+}
+
+.glitch-glyph {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  white-space:pre;
+}
+
 .hero-cross {
   color:var(--red);
   font-size:1.08em;
