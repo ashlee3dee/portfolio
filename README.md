@@ -1,58 +1,77 @@
-# Portfolio
+# Ashlee Alaniz — Art × Systems
 
-A simple, responsive personal website built with plain HTML and CSS. No package
-installation or build step is required.
+A graphic, image-led portfolio with a curated homepage, all 55 archived works,
+discipline filters, and an accessible image/video viewer. Plain HTML, CSS, and
+JavaScript. No package manager, framework, or build step.
 
-## Clone and edit on your desktop
+## Preview
 
-Install [Git](https://git-scm.com/) or use [GitHub Desktop](https://desktop.github.com/)
-to clone `https://github.com/ashlee3dee/portfolio`.
+Run `python -m http.server 8000 --bind localhost` in this folder and open
+<http://localhost:8000>. You can also open `index.html` directly.
 
-```sh
-git clone https://github.com/ashlee3dee/portfolio.git
-cd portfolio
+## Make it yours
+
+| File | What to edit |
+| --- | --- |
+| `projects.js` | Project titles, descriptions, images, links, categories, and ordering |
+| `index.html` | Introduction, availability, biography, email, and static headings |
+| `styles.css` | Colors and spacing in the first `:root` block; layouts below |
+| `app.js` | Filters and artwork viewer behavior; usually no need to touch |
+
+### Choose the homepage work
+
+At the top of `projects.js`, `selected` is the ordered list of project IDs shown
+on the homepage. Move IDs to reorder the work. Add or remove IDs to change the
+selection. The `hero` ID controls the large featured image, title, and category.
+Add an `alt` field to its project for a more descriptive image label.
+
+### Add or edit a project
+
+Copy an object in the `projects` array in `projects.js`, separated by a comma:
+
+```js
+{
+  "id": "my-new-project",
+  "title": "My new project",
+  "category": "concept-art",
+  "description": "My role, process, and context.",
+  "image": "./assets/my-project.webp",
+  "fullImage": "./assets/my-project-full.webp",
+  "alt": "A short description of the artwork",
+  "link": "https://example.com/project"
+}
 ```
 
-Open the folder in your preferred editor:
+Use a unique permanent ID. Category must match an ID in `categories`.
+`fullImage`, `alt`, and `link` are optional. Add `"video": "YOUTUBE_VIDEO_ID"`
+to show a video instead of a full-size image. Add the ID to `selected` if you
+want it on the curated homepage. All work and category counts update automatically.
 
-- Edit `index.html` to change your name, introduction, projects, and profile links.
-- Edit `styles.css` to change colors, fonts, and layout.
-- Copy a project `<article class="card">` to add another project.
-- Keep local asset links relative (for example, `./styles.css`) so they also work
-  under the GitHub Pages `/portfolio/` path.
+Put new public images in `assets/` and commit that folder. Keep paths relative
+so they work under GitHub Pages' `/portfolio/` path. Existing artworks use optimized, self-hosted WebP copies in `assets/work/`,
+so images do not depend on the old Portfoliobox site. Optional `localImage`,
+`localFull`, and `localVideo` fields can point to downloaded originals for local
+previews. Downloaded source media is ignored by Git. Hosted videos use YouTube's
+privacy-enhanced player and load only when a project is opened. Do not commit
+the entire 296 MiB source archive.
 
-Open `index.html` in a browser to preview it. Alternatively, if Python 3 is
-installed, run this command from the repository folder:
+`scripts/prepare-images.py` can regenerate optimized images from the archive.
+It requires Pillow and preserves project titles, descriptions, and ordering.
+Normal content updates do not require running this script.
 
-```sh
-python3 -m http.server 8000 --bind 127.0.0.1
-```
+Some untitled works have descriptive editorial labels or numbered study labels.
+The unmodified source wording is preserved in `content/portfoliobox/portfolio.json`.
 
-Visit <http://localhost:8000>. Refresh the browser after editing; press Ctrl+C in
-the terminal to stop the server.
+## Publish on GitHub Pages
 
-## Enable automated deployment
+In GitHub, choose **Settings → Pages → Source → GitHub Actions**. Commit and push
+to `main`. The deployment workflow publishes `index.html`, `styles.css`,
+`projects.js`, `app.js`, and an optional `assets/` folder. No secrets are needed.
+You can also run the workflow manually from the Actions tab.
 
-1. In this repository on GitHub, open **Settings → Pages**.
-2. Under **Build and deployment → Source**, select **GitHub Actions**.
-3. Commit and push your changes to `main` (or merge a pull request into `main`).
-   The **Deploy website to GitHub Pages** workflow publishes the site automatically.
-4. Open the **Actions** tab to follow the deployment. After it succeeds, visit
-   <https://ashlee3dee.github.io/portfolio/>.
+## Archive
 
-You can also use **Actions → Deploy website to GitHub Pages → Run workflow** to
-deploy manually after enabling Pages. No deployment tokens or other secrets need
-to be added. Only `index.html` and `styles.css` are published; add any future
-images or other public assets to the workflow's **Prepare website** copy step.
-
-For subsequent updates, commit and push using GitHub Desktop, or run:
-
-```sh
-git add index.html styles.css
-git commit -m "Update portfolio"
-git push origin main
-```
-
-If you fork or rename this repository, update the profile links in `index.html`
-and the site URL above. If your default branch is not `main`, also update the
-branch trigger in `.github/workflows/deploy.yml`.
+The complete scrape, downloaded images and videos, checksums, and download scripts
+live in `content/portfoliobox/`. See that folder's README for details. This source
+archive is separate from the editable website content; editing `projects.js`
+does not alter the archive.

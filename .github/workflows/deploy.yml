@@ -30,7 +30,8 @@ jobs:
       - name: Prepare website
         run: |
           mkdir -p _site
-          cp index.html styles.css _site/
+          cp index.html styles.css projects.js app.js _site/
+          if [ -d assets ]; then cp -R assets _site/; fi
       - name: Upload website
         uses: actions/upload-pages-artifact@v3.0.1
         with:
