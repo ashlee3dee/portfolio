@@ -15,24 +15,24 @@ window.PORTFOLIO = {
     "procedural-generation-toolkit",
     "orbital-spaceport-i",
     "painterly-worlds",
-    "dc-heroes-united"
+    "brooklyn-broke-the-universe"
   ],
   "categories": [
     {
       "id": "concept-art",
-      "name": "Concept Art"
+      "name": "Concept art"
     },
     {
       "id": "technical-direction",
-      "name": "Technical Direction"
+      "name": "Technical direction"
     },
     {
       "id": "product-design",
-      "name": "Product Renders"
+      "name": "Product renders"
     },
     {
       "id": "tool-development",
-      "name": "Tool Development"
+      "name": "Tool development"
     },
     {
       "id": "lookdev",
@@ -40,7 +40,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "game-art",
-      "name": "Game Art"
+      "name": "Game art"
     }
   ],
   "projects": [
@@ -86,7 +86,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "city-of-tomorrow",
-      "title": "City of tomorrow",
+      "title": "City of Tomorrow",
       "category": "concept-art",
       "description": "",
       "image": "./assets/work/lAIMkRZZkYmcUSxK.webp",
@@ -218,7 +218,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "orbital-space-port-i",
-      "title": "Orbital Space Port I",
+      "title": "Orbital Spaceport I",
       "category": "concept-art",
       "description": "",
       "image": "./assets/work/q6UQPNNSf3jnplDc.webp",
@@ -290,7 +290,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "wipeout-inspired-racecraft",
-      "title": "Wipeout Inspired Racecraft",
+      "title": "Wipeout-Inspired Racecraft",
       "category": "concept-art",
       "description": "",
       "image": "./assets/work/lUpr8a62r5otkjci.webp",
@@ -313,7 +313,7 @@ window.PORTFOLIO = {
       "id": "brooklyn-broke-the-universe",
       "title": "Brooklyn Broke the Universe",
       "category": "technical-direction",
-      "description": "Technical Direction, Lighting, Shading",
+      "description": "Technical direction, lighting, shading",
       "image": "./assets/work/pGlTQYbGBigAqdBk.webp",
       "source": "https://ashlee3dee.portfoliobox.net/technical-direction?s=G5BlZtrkgdtkPtk1&i=pGlTQYbGBigAqdBk",
       "video": "UbEzHNl0hD4",
@@ -325,7 +325,7 @@ window.PORTFOLIO = {
       "id": "dc-heroes-united",
       "title": "DC Heroes United",
       "category": "technical-direction",
-      "description": "Technical Director, Junior Look Developer, Lighting, Shaders, VFX, Environments",
+      "description": "Technical director, junior look developer, lighting, shaders, VFX, environments",
       "image": "./assets/work/vWf1AXEZXGgC5VbV.webp",
       "source": "https://ashlee3dee.portfoliobox.net/technical-direction?s=G5BlZtrkgdtkPtk1&i=vWf1AXEZXGgC5VbV",
       "video": "TT6zcWEgJHE",
@@ -337,7 +337,7 @@ window.PORTFOLIO = {
       "id": "honkai-star-rail-your-new-reality",
       "title": "Honkai: Star Rail — Your New Reality",
       "category": "technical-direction",
-      "description": "Technical Director, Lead Look Developer, Lighting, Shaders, VFX, Environments",
+      "description": "Technical director, lead look developer, lighting, shaders, VFX, environments",
       "image": "./assets/work/KMWy9RW6jW4In2j2.webp",
       "source": "https://ashlee3dee.portfoliobox.net/technical-direction?s=G5BlZtrkgdtkPtk1&i=KMWy9RW6jW4In2j2",
       "video": "bq-At1tZQxg",
@@ -347,7 +347,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "character-studies",
-      "title": "Character studies",
+      "title": "Character Studies",
       "category": "product-design",
       "description": "",
       "image": "./assets/work/Cy6ZjDDS0GizMEsR.webp",
@@ -357,7 +357,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "cosmetic-study",
-      "title": "Cosmetic study",
+      "title": "Cosmetic Study",
       "category": "product-design",
       "description": "",
       "image": "./assets/work/PtV0gSE4pUX5u42I.webp",
@@ -441,7 +441,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "splatool-painterly-addon",
-      "title": "SplaTool Painterly Addon",
+      "title": "SplaTool Painterly Add-on",
       "category": "tool-development",
       "description": "",
       "image": "./assets/work/jagAE166imZzKwMO.webp",
@@ -485,7 +485,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "painterly-worlds",
-      "title": "Painterly worlds",
+      "title": "Painterly Worlds",
       "category": "lookdev",
       "description": "",
       "image": "./assets/work/EMvlee9ALBNnIGiS.webp",
@@ -507,7 +507,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "honkai-stair-rail",
-      "title": "Honkai Stair Rail",
+      "title": "Honkai: Star Rail",
       "category": "lookdev",
       "description": "",
       "image": "./assets/work/gANal1OBnuAod7cC.webp",

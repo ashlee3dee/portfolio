@@ -101,8 +101,15 @@ is used for metadata and the 3d signature. Both families are self-hosted in
 
 ## Headline hover effect
 
-Hover an individual character in Art × Systems to cycle its font. The original
-font returns on pointer exit. Character widths stay fixed to prevent layout
-shifts. The effect is disabled on touch-only devices and for reduced-motion
-preferences. Edit the `fonts` list and the 110 ms interval inside
-`setupHeadlineGlitch()` in `app.js` to adjust it.
+Hover an individual character in Art × Systems to trigger a timed font sequence.
+It starts after 100 ms, changes quickly, then slows down and restores the original
+font after 1,200 ms. Each character completes independently, including after the
+pointer moves away. Hovering again during a sequence does not restart it.
+Character widths stay fixed to prevent layout shifts. The effect is disabled on
+touch-only devices and for reduced-motion preferences. Edit `timing` and the
+`fonts` list inside `setupHeadlineGlitch()` in `app.js` to adjust it.
+
+Use title case for artwork and project names, sentence case for interface labels,
+headings, and role descriptions. Preserve official names, acronyms, and the
+intentional lowercase ashlee3dee / 3d branding. Uppercase display treatments
+are controlled in CSS.

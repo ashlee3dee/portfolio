@@ -104,12 +104,40 @@
     const fonts = ['"IBM Plex Mono", monospace', 'Arial, sans-serif',
       'Georgia, serif', 'Impact, sans-serif', '"Times New Roman", serif',
       '"Trebuchet MS", sans-serif', '"Space Grotesk", sans-serif'];
-    let active = null;
+    // Timing in milliseconds. Each letter owns its sequence independently.
+    const timing = { delay: 100, duration: 1200, fastest: 45, slowest: 260 };
+    const active = new Map();
+    function resetGlyph(glyph) {
+      const state = active.get(glyph);
+      if (!state) return;
+      clearTimeout(state.tick);
+      clearTimeout(state.finish);
+      glyph.style.fontFamily = '';
+      active.delete(glyph);
+    }
     function stop() {
-      if (!active) return;
-      clearInterval(active.timer);
-      active.glyph.style.fontFamily = '';
-      active = null;
+      for (const glyph of active.keys()) resetGlyph(glyph);
+    }
+    function trigger(glyph) {
+      if (reduceMotion.matches || !canHover.matches || active.has(glyph)) return;
+      const state = { tick: null, finish: null, lastFont: fonts.length - 1 };
+      active.set(glyph, state);
+      state.tick = setTimeout(() => {
+        const start = performance.now();
+        state.finish = setTimeout(() => resetGlyph(glyph), timing.duration);
+        function switchFont() {
+          const elapsed = performance.now() - start;
+          if (elapsed >= timing.duration) { resetGlyph(glyph); return; }
+          // No repeats, including the original family on the first change.
+          const next = (state.lastFont + 1 + Math.floor(Math.random() * (fonts.length - 1))) % fonts.length;
+          state.lastFont = next;
+          glyph.style.fontFamily = fonts[next];
+          const progress = elapsed / timing.duration;
+          const interval = timing.fastest + (timing.slowest - timing.fastest) * progress ** 2;
+          state.tick = setTimeout(switchFont, Math.min(interval, timing.duration - elapsed));
+        }
+        switchFont();
+      }, timing.delay);
     }
     // Measure every original character before changing the DOM, retaining tracking.
     const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
@@ -143,26 +171,12 @@
         glyph.className = 'glitch-glyph';
         glyph.textContent = character;
         cell.append(original, glyph);
-        cell.addEventListener('pointerenter', () => {
-          if (reduceMotion.matches || !canHover.matches) return;
-          stop();
-          let lastFont = -1;
-          const switchFont = () => {
-            // Pick a different family on every tick.
-            const next = (lastFont + 1 + Math.floor(Math.random() * (fonts.length - 1))) % fonts.length;
-            lastFont = next;
-            glyph.style.fontFamily = fonts[next];
-          };
-          switchFont();
-          active = { glyph, timer: setInterval(switchFont, 110) };
-        });
-        cell.addEventListener('pointerleave', stop);
-        cell.addEventListener('pointercancel', stop);
+        cell.addEventListener('pointerenter', () => trigger(glyph));
+        cell.addEventListener('pointercancel', () => resetGlyph(glyph));
         fragment.append(cell);
       });
       node.replaceWith(fragment);
     }
-    heading.addEventListener('pointerleave', stop);
     window.addEventListener('blur', stop);
     window.addEventListener('pagehide', stop);
     reduceMotion.addEventListener('change', stop);
