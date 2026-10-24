@@ -6,8 +6,8 @@
   --line:#c8c8c0;
   --muted:#64655e;
   --gutter:clamp(20px,4vw,72px);
-  --sans:Arial,Helvetica,sans-serif;
-  --mono:'Courier New',monospace;
+  --sans:'Space Grotesk',Arial,sans-serif;
+  --mono:'IBM Plex Mono',Consolas,monospace;
 }
 
 * {
@@ -102,7 +102,7 @@ img {
 .wordmark {
   font-size:30px;
   letter-spacing:-2px;
-  font-weight:900;
+  font-weight:700;
   display:inline-flex;
   align-items:center;
   line-height:1;
@@ -183,8 +183,8 @@ img {
 h1 {
   position:relative;
   font-size:clamp(88px,15.5vw,248px);
-  font-weight:900;
-  letter-spacing:-.085em;
+  font-weight:700;
+  letter-spacing:-.065em;
   line-height:.77;
   margin:53px 0 29px;
 }
@@ -199,7 +199,7 @@ h1 {
 }
 
 .systems {
-  letter-spacing:-.078em;
+  letter-spacing:-.06em;
 }
 
 .hero-dot {
@@ -215,6 +215,7 @@ h1 {
 }
 
 .hero-bottom p {
+  font-family:var(--mono);
   font-size:17px;
   line-height:1.35;
   margin:0;
@@ -540,7 +541,7 @@ h1 {
 }
 
 .about-mark {
-  font-weight:900;
+  font-weight:700;
   font-size:130px;
   color:var(--red);
   letter-spacing:-.12em;
@@ -623,7 +624,7 @@ h1 {
   font-kerning:normal;
   margin:45px 0;
   position:relative;
-  font-weight:900;
+  font-weight:700;
 }
 
 .contact-line {
@@ -671,7 +672,7 @@ h1 {
 /* The small 3d signature uses its own typeface and neutral tracking. */
 .dimension-mark {
   display:inline-block;
-  font-family:Consolas,'SFMono-Regular','Liberation Mono',monospace;
+  font-family:var(--mono);
   font-size:.72em;
   font-weight:500;
   font-style:normal;
@@ -690,6 +691,15 @@ h1 {
   font-size:12px;
   line-height:1;
   vertical-align:baseline;
+}
+
+.header nav,
+.filter,
+.text-button,
+.section-note,
+.dialog-info p,
+.dialog-info a {
+  font-family:var(--mono);
 }
 
 /* Expanded artwork viewer */

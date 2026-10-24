@@ -91,3 +91,10 @@ and concise: role, discipline, responsibilities, process, tools, and availabilit
 Let typography, layout, imagery, and the 3d signature provide personality. Avoid
 repeated slogans, promotional claims, and invented studio or department labels.
 Preserve original artwork titles.
+
+## Typography
+
+Space Grotesk is used for headings, body copy, and the wordmark. IBM Plex Mono
+is used for metadata and the 3d signature. Both families are self-hosted in
+`assets/fonts/`, with their open licenses. Edit `--sans` and `--mono` in
+`styles.css` to change the pairing.
