@@ -85,7 +85,8 @@ stale styles, press Ctrl+Shift+R once to reload all files.
 
 ## Writing style
 
-Use Art × Systems as the primary visual identity. Keep supporting copy factual
+Use Art × Systems as the primary visual identity and Let’s Make Something as
+the contact call to action. Keep supporting copy factual
 and concise: role, discipline, responsibilities, process, tools, and availability.
 Let typography, layout, imagery, and the 3d signature provide personality. Avoid
 repeated slogans, promotional claims, and invented studio or department labels.
