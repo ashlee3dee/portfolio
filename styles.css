@@ -508,6 +508,11 @@ h1 {
   gap:10vw;
 }
 
+.about .section-index {
+  font-size:12px;
+  color:var(--paper);
+}
+
 .about h2 {
   font-size:clamp(42px,5.2vw,80px);
   line-height:1;
@@ -516,7 +521,7 @@ h1 {
 }
 
 .about h2>span {
-  color:#92958c;
+  color:#d8dad1;
 }
 
 .about-mark {
@@ -539,18 +544,20 @@ h1 {
 
 .about-copy {
   padding-top:33px;
+  max-width:55ch;
 }
 
 .about-copy p {
-  font-size:14px;
-  line-height:1.7;
-  color:#b7b9af;
+  font-size:18px;
+  line-height:1.65;
+  color:#e1e3da;
+  margin:0 0 24px;
 }
 
 .about-copy .about-lead {
-  font-size:25px;
-  line-height:1.35;
-  letter-spacing:-.03em;
+  font-size:28px;
+  line-height:1.4;
+  letter-spacing:-.015em;
   color:var(--paper);
   margin-top:0;
 }
@@ -563,6 +570,8 @@ h1 {
 
 .tools h3 {
   font-weight:400;
+  font-size:12px;
+  color:var(--paper);
 }
 
 .tools p {
@@ -571,7 +580,8 @@ h1 {
 
 .about-availability {
   margin-top:25px;
-  font-size:10px;
+  font-size:12px;
+  line-height:1.7;
 }
 
 .about-availability span {
@@ -811,7 +821,7 @@ dialog::backdrop {
     gap:7vw;
   }
   .about-copy .about-lead {
-    font-size:22px;
+    font-size:24px;
   }
   .feature-caption {
     font-size:18px;
@@ -974,7 +984,7 @@ dialog::backdrop {
     padding-top:35px;
   }
   .about-copy p {
-    font-size:13px;
+    font-size:16px;
   }
   .contact-top {
     font-size:9px;
