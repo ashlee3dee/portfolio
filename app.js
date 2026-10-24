@@ -317,6 +317,35 @@
     canHover.addEventListener('change', stop);
   }
   document.fonts.ready.then(setupHeadlineGlitch);
+  const heartButton = document.querySelector('.hero-cross');
+  const heartSymbol = heartButton?.querySelector('.hero-cross-symbol');
+  let heartPulse;
+  heartButton?.addEventListener('click', () => {
+    if (!heartSymbol || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    heartPulse?.cancel();
+    heartPulse = heartSymbol.animate([
+      { transform: 'scale(1)' },
+      { transform: 'scale(1.2)', offset: .25 },
+      { transform: 'scale(.95)', offset: .55 },
+      { transform: 'scale(1)' }
+    ], { duration: 600, easing: 'cubic-bezier(.22,1,.36,1)' });
+    heartButton.querySelectorAll('.heart-wave').forEach(wave => wave.remove());
+    for (let i = 0; i < 3; i++) {
+      const wave = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      wave.setAttribute('viewBox', '0 0 100 100');
+      wave.setAttribute('aria-hidden', 'true');
+      wave.setAttribute('class', 'heart-wave');
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', 'M50 28 C35 8 8 8 8 35 C8 55 30 73 50 90 C70 73 92 55 92 35 C92 8 65 8 50 28 Z');
+      wave.append(path);
+      heartButton.append(wave);
+      const animation = wave.animate([
+        { transform: 'scale(1)', opacity: .5 },
+        { transform: 'scale(2.6)', opacity: 0 }
+      ], { duration: 1200, delay: i * 160, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'both' });
+      animation.onfinish = () => wave.remove();
+    }
+  });
   document.querySelector('#year').textContent = new Date().getFullYear();
   render();
 })();
