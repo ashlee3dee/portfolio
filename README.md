@@ -51,18 +51,11 @@ want it on the curated homepage. All work and category counts update automatical
 
 Put new public images in `assets/` and commit that folder. Keep paths relative
 so they work under GitHub Pages' `/portfolio/` path. Existing artworks use optimized, self-hosted WebP copies in `assets/work/`,
-so images do not depend on the old Portfoliobox site. Optional `localImage`,
-`localFull`, and `localVideo` fields can point to downloaded originals for local
-previews. Downloaded source media is ignored by Git. Hosted videos use YouTube's
-privacy-enhanced player and load only when a project is opened. Do not commit
-the entire 296 MiB source archive.
-
-`scripts/prepare-images.py` can regenerate optimized images from the archive.
-It requires Pillow and preserves project titles, descriptions, and ordering.
-Normal content updates do not require running this script.
+so images do not depend on the old Portfoliobox site. Local video previews live in
+`assets/videos/`; hosted videos use YouTube’s privacy-enhanced player and load
+only when a project is opened.
 
 Some untitled works have descriptive editorial labels or numbered study labels.
-The unmodified source wording is preserved in `content/portfoliobox/portfolio.json`.
 
 ## Publish on GitHub Pages
 
@@ -70,13 +63,6 @@ In GitHub, choose **Settings → Pages → Source → GitHub Actions**. Commit a
 to `main`. The deployment workflow publishes `index.html`, `styles.css`,
 `projects.js`, `app.js`, and an optional `assets/` folder. No secrets are needed.
 You can also run the workflow manually from the Actions tab.
-
-## Archive
-
-The complete scrape, downloaded images and videos, checksums, and download scripts
-live in `content/portfoliobox/`. See that folder's README for details. This source
-archive is separate from the editable website content; editing `projects.js`
-does not alter the archive.
 
 ## Browser cache
 
