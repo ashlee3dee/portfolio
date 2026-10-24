@@ -109,9 +109,11 @@ img {
 
 .brand-symbol {
   color:var(--red);
-  font-size:41px;
+  font-size:29px;
+  font-weight:400;
   line-height:1;
-  margin:0 4px;
+  margin:0 9px;
+  letter-spacing:0;
 }
 
 .wordmark-end {
@@ -527,7 +529,12 @@ h1 {
 }
 
 .about-mark>span {
-  font-size:100px;
+  font-size:inherit;
+}
+
+.about-mark .dimension-mark {
+  font-size:.34em;
+  margin-left:.3em;
 }
 
 .about-copy {
@@ -584,22 +591,29 @@ h1 {
 }
 
 .contact h2 {
-  font-size:clamp(52px,10.7vw,168px);
-  line-height:.87;
-  letter-spacing:-.075em;
+  font-size:clamp(48px,10vw,160px);
+  line-height:1.02;
+  letter-spacing:-.015em;
+  word-spacing:.04em;
+  font-kerning:normal;
   margin:45px 0;
   position:relative;
   font-weight:900;
 }
 
-.contact h2>span {
-  display:inline-block;
-  margin-left:.08em;
-  transition:transform .2s;
+.contact-line {
+  display:block;
+  white-space:nowrap;
 }
 
-.contact-link:hover h2>span {
-  transform:translate(8px,-8px);
+.contact h2 .dimension-mark {
+  font-size:.25em;
+  margin-left:.38em;
+  transform:translateY(-.6em);
+}
+
+.contact-link:hover .dimension-mark {
+  transform:translateY(-.72em);
 }
 
 .contact-bottom {
@@ -627,6 +641,30 @@ h1 {
 
 .footer>a:hover {
   text-decoration:underline;
+}
+
+/* The small 3d signature uses its own typeface and neutral tracking. */
+.dimension-mark {
+  display:inline-block;
+  font-family:Consolas,'SFMono-Regular','Liberation Mono',monospace;
+  font-size:.72em;
+  font-weight:500;
+  font-style:normal;
+  line-height:0;
+  letter-spacing:-.04em;
+  text-transform:none;
+  vertical-align:super;
+  transition:transform .2s;
+}
+
+.text-button .dimension-mark {
+  margin-left:1em;
+}
+
+.project-zoom .dimension-mark {
+  font-size:12px;
+  line-height:1;
+  vertical-align:baseline;
 }
 
 /* Expanded artwork viewer */
@@ -796,7 +834,7 @@ dialog::backdrop {
     font-size:25px;
   }
   .brand-symbol {
-    font-size:33px;
+    font-size:25px;
   }
   .header nav {
     gap:16px;
@@ -945,7 +983,7 @@ dialog::backdrop {
     display:none;
   }
   .contact h2 {
-    font-size:10.6vw;
+    font-size:9.8vw;
     margin:36px 0;
   }
   .contact-bottom {

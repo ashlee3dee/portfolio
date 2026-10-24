@@ -47,7 +47,14 @@
       const button = document.createElement('button'); button.className = 'project-button'; button.setAttribute('aria-label', `View ${project.title}`);
       const imageWrap = document.createElement('div'); imageWrap.className = 'project-image';
       const img = imageElement(project); img.loading = 'lazy'; img.decoding = 'async'; imageWrap.append(img);
-      const arrow = document.createElement('span'); arrow.className = 'project-zoom'; arrow.textContent = '↗'; arrow.setAttribute('aria-hidden', 'true'); imageWrap.append(arrow);
+      const arrow = document.createElement('span');
+      arrow.className = 'project-zoom';
+      arrow.setAttribute('aria-hidden', 'true');
+      const mark = document.createElement('sup');
+      mark.className = 'dimension-mark';
+      mark.textContent = '3d';
+      arrow.append(mark);
+      imageWrap.append(arrow);
       if (project.video) { const label = document.createElement('span'); label.className = 'media-label'; label.textContent = '▶ Motion'; imageWrap.append(label); }
       const caption = document.createElement('div'); caption.className = 'project-caption';
       const text = document.createElement('div'); const title = document.createElement('h3'); title.textContent = project.title;
@@ -57,7 +64,7 @@
       button.addEventListener('click', () => openProject(project.id)); article.append(button); grid.append(article);
     }
     document.querySelector('#result-count').textContent = `${String(visible.length).padStart(2, '0')} / ${all.length} works`;
-    document.querySelector('#archive-toggle').innerHTML = filter === 'selected' ? 'Explore the complete archive <span>↗</span>' : 'Back to selected work <span>↖</span>';
+    document.querySelector('#archive-toggle').innerHTML = filter === 'selected' ? 'Explore the complete archive <sup class="dimension-mark" aria-hidden="true">3d</sup>' : 'Back to selected work <sup class="dimension-mark" aria-hidden="true">3d</sup>';
   }
   function openProject(id) {
     viewerProjects = visible.some(p => p.id === id) ? visible : [all.find(p => p.id === id), ...visible];
