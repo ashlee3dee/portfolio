@@ -64,7 +64,7 @@
       button.addEventListener('click', () => openProject(project.id)); article.append(button); grid.append(article);
     }
     document.querySelector('#result-count').textContent = `${String(visible.length).padStart(2, '0')} / ${all.length} works`;
-    document.querySelector('#archive-toggle').innerHTML = filter === 'selected' ? 'Explore the complete archive <sup class="dimension-mark" aria-hidden="true">3d</sup>' : 'Back to selected work <sup class="dimension-mark" aria-hidden="true">3d</sup>';
+    document.querySelector('#archive-toggle').innerHTML = filter === 'selected' ? 'View all work <sup class="dimension-mark" aria-hidden="true">3d</sup>' : 'Back to selected work <sup class="dimension-mark" aria-hidden="true">3d</sup>';
   }
   function openProject(id) {
     viewerProjects = visible.some(p => p.id === id) ? visible : [all.find(p => p.id === id), ...visible];

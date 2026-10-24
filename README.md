@@ -82,3 +82,11 @@ The deployment workflow versions the CSS and JavaScript URLs with the commit SHA
 so visitors receive matching files after each update. Keep the `?v=...` query
 strings on the asset references in `index.html`. For an already-open page with
 stale styles, press Ctrl+Shift+R once to reload all files.
+
+## Writing style
+
+Use Art × Systems as the primary visual identity. Keep supporting copy factual
+and concise: role, discipline, responsibilities, process, tools, and availability.
+Let typography, layout, imagery, and the 3d signature provide personality. Avoid
+repeated slogans, promotional claims, and invented studio or department labels.
+Preserve original artwork titles.
