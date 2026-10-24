@@ -7,7 +7,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23ed3024' d='M0 0h40v40H0z'/%3E%3Cpath fill='%23f1f0eb' d='m8 30 9-20h6l9 20h-7l-2-5h-8l-2 5z'/%3E%3C/svg%3E">
 <link rel="preload" href="./assets/fonts/space-grotesk-700.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="./assets/fonts/fonts.css">
-<link rel="stylesheet" href="./styles.css?v=20261024-image-overlay-24"><script src="./projects.js?v=20261024-image-overlay-24" defer></script><script src="./app.js?v=20261024-image-overlay-24" defer></script>
+<link rel="stylesheet" href="./styles.css?v=20261024-geometry-26"><script src="./projects.js?v=20261024-geometry-26" defer></script><script src="./app.js?v=20261024-geometry-26" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#work">Skip to work</a>
@@ -30,6 +30,13 @@
 <div class="section-heading"><div><p class="mono section-index">01 / Work index</p><h2 id="work-title">Selected work<span class="red">.</span></h2></div></div>
 <div class="work-toolbar"><div id="filters" class="filters" aria-label="Filter work by discipline"></div><span id="result-count" class="mono" role="status" aria-live="polite"></span></div>
 <div id="project-grid" class="project-grid"></div>
+<div id="geometry" class="geometry-panel" hidden>
+<article class="geometry-study" aria-labelledby="geometry-title">
+<video class="geometry-video" width="1200" height="800" controls loop muted playsinline preload="none" poster="./assets/geometry/wavefront-poster.webp" aria-label="A red polygon wavefront contracts and splits, leaving its straight skeleton in black."><source src="./assets/geometry/wavefront.mp4" type="video/mp4"><a href="./assets/geometry/wavefront.mp4">Download the wavefront animation</a>.</video>
+<div class="geometry-caption"><h3 id="geometry-title">Straight Skeleton &amp; Wavefront Offset</h3><p>A polygon offset tool built on a straight skeleton algorithm in my Blender node toolkit. An event queue implemented in Geometry Nodes handles edge collapses and polygon splits as the wavefront moves inward, tracing the skeleton along the way.</p></div>
+</article>
+</div>
+
 <div class="archive-action"><button id="archive-toggle" class="text-button">View all work <span><sup class="dimension-mark" aria-hidden="true">3d</sup></span></button></div>
 <noscript><p>Enable JavaScript to explore the work, or visit <a href="https://ashlee3dee.portfoliobox.net/">the original portfolio</a>.</p></noscript>
 </section>

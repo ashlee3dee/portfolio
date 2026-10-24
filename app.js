@@ -1,6 +1,20 @@
 /* Layout and interactions. Edit projects.js to maintain portfolio content. */
 (() => {
   const data = window.PORTFOLIO;
+  // Start the overview once it is visible. Native controls retain pause/seeking.
+  const geometryVideo = document.querySelector('.geometry-video');
+  if (geometryVideo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const videoObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        geometryVideo.play().catch(() => {});
+        videoObserver.disconnect();
+      }
+    }, { threshold: 0.35 });
+    videoObserver.observe(geometryVideo);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) geometryVideo.pause();
+    });
+  }
   const grid = document.querySelector('#project-grid');
   const dialog = document.querySelector('#project-dialog');
   const media = document.querySelector('#dialog-media');
@@ -38,7 +52,7 @@
   document.querySelector('#feature-type').textContent = data.categories.find(c => c.id === hero.category).name;
   heroImg.addEventListener('error', () => { heroImg.src = hero.fullImage || hero.image; }, { once: true });
   document.querySelector('#hero-project').addEventListener('click', () => openProject(hero.id));
-  const filters = [{ id: 'selected', label: 'Selected' }, { id: 'all', label: 'All work' }, ...data.categories.map(c => ({ id: c.id, label: c.name }))];
+  const filters = [{ id: 'selected', label: 'Selected' }, { id: 'all', label: 'All work' }, ...data.categories.map(c => ({ id: c.id, label: c.name })), { id: 'computational-geometry', label: 'Computational geometry' }];
   for (const item of filters) {
     const button = document.createElement('button');
     button.className = 'filter'; button.textContent = item.label; button.dataset.filter = item.id;
@@ -101,6 +115,23 @@
   document.fonts.ready.then(scheduleLayout);
   function render() {
     stopImageMark();
+    const geometryActive = filter === 'computational-geometry';
+    document.querySelector('#geometry').hidden = !geometryActive;
+    grid.hidden = geometryActive;
+    document.querySelector('.archive-action').hidden = geometryActive;
+    const sectionTitle = filter === 'selected' ? 'Selected work' : filters.find(item => item.id === filter).label;
+    const workTitle = document.querySelector('#work-title');
+    const period = document.createElement('span');
+    period.className = 'red';
+    period.textContent = '.';
+    workTitle.replaceChildren(sectionTitle, period);
+    if (!geometryActive) geometryVideo?.pause();
+    if (geometryActive) {
+      visible = [];
+      for (const button of document.querySelectorAll('.filter')) button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
+      document.querySelector('#result-count').textContent = '01 / Study';
+      return;
+    }
     visible = filter === 'selected' ? data.selected.map(id => all.find(p => p.id === id)).filter(Boolean) : all.filter(p => filter === 'all' || p.category === filter);
     for (const button of document.querySelectorAll('.filter')) button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
     grid.replaceChildren();

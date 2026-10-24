@@ -125,3 +125,26 @@ single column on narrow screens. `imageWidth` and `imageHeight` reserve space
 before images load; new images without these fields are measured on load.
 Adjust `targetHeight` and `maxPerRow` in `layoutProjects()` in `app.js` to tune
 the tiling. Project order remains the order in `projects.js`.
+
+## Computational geometry
+
+The Computational geometry work tab presents the A3D toolkit's straight skeleton
+and wavefront offset as a single video panel with a title and paragraph. It is
+hidden on Selected, All work, and the other discipline tabs. Add future studies
+as sibling articles inside `#geometry`. Videos in `assets/geometry/` are rendered from the actual
+Geometry Nodes outputs, with a gray input boundary, red active wavefront, and
+black vertex traces. Native controls support pausing and seeking; the overview
+starts on first visibility unless reduced motion is requested.
+
+`scripts/render-geometry.py` builds only the required source groups in a fresh
+Blender session. Adjust its `TOOLKIT` path to regenerate from another checkout:
+
+```powershell
+& '<blender.exe>' --factory-startup -b --python scripts/render-geometry.py
+```
+
+It writes PNG frames, evaluated geometry JSON, and an inspection `.blend` under
+ignored `.media-tools/geometry/`, without editing the toolkit or its build.
+The published clips use H.264, yuv420p, and fast-start MP4. The overview is 144
+frames at 24 fps, with frame 70 used for the poster. The render is a presentation
+study, not a benchmark.
