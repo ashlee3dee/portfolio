@@ -103,8 +103,10 @@ img {
   font-size:30px;
   letter-spacing:-2px;
   font-weight:900;
-  display:flex;
+  display:inline-flex;
   align-items:center;
+  line-height:1;
+  white-space:nowrap;
 }
 
 .brand-symbol {
@@ -117,7 +119,20 @@ img {
 }
 
 .wordmark-end {
-  font-weight:400;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-left:10px;
+  background:var(--red);
+  color:var(--paper);
+  height:1.34em;
+  padding:0 .35em;
+  font-size:.62em;
+  font-weight:500;
+  line-height:1;
+  letter-spacing:-.04em;
+  /* Align the box to Arial's visible letter height, not its baseline. */
+  transform:translateY(.03em);
 }
 
 .header-label {
