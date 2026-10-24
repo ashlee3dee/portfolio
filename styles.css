@@ -159,6 +159,7 @@ img {
 }
 
 .hero {
+  position:relative;
   padding:32px var(--gutter) 36px;
 }
 
@@ -218,14 +219,20 @@ h1 {
 
 .hero-cross-symbol {
   display:inline-block;
-  letter-spacing:0;
-  transform-origin:center;
-  transition:transform 500ms cubic-bezier(.22,1,.36,1);
+  width:.65em;
+  height:.65em;
+  overflow:visible;
+  fill:currentColor;
+}
+
+.hero-cross-symbol path {
+  d:path("M50,40 C50,40 18,8 18,8 C18,8 8,18 8,18 C8,18 40,50 40,50 C40,50 8,82 8,82 C8,82 18,92 18,92 C18,92 50,60 50,60 C50,60 82,92 82,92 C82,92 92,82 92,82 C92,82 60,50 60,50 C60,50 92,18 92,18 C92,18 82,8 82,8 C82,8 50,40 50,40 Z");
+  transition:d 650ms cubic-bezier(.22,1,.36,1);
 }
 
 @media (hover:hover) and (pointer:fine) {
-  .hero-cross:hover .hero-cross-symbol {
-    transform:rotate(45deg);
+  .hero-cross:hover .hero-cross-symbol path {
+    d:path("M50,28 C45,21.3333 38.6667,16.8889 32.4444,14.9259 C26.2222,12.963 20.1111,13.4815 15.5556,16.7407 C11,20 8,26 8,35 C8,41.6667 10.4444,48.1111 14.4444,54.3704 C18.4444,60.6296 24,66.7037 30.2222,72.6296 C36.4444,78.5556 43.3333,84.3333 50,90 C56.6667,84.3333 63.5556,78.5556 69.7778,72.6296 C76,66.7037 81.5556,60.6296 85.5556,54.3704 C89.5556,48.1111 92,41.6667 92,35 C92,26 89,20 84.4444,16.7407 C79.8889,13.4815 73.7778,12.963 67.5556,14.9259 C61.3333,16.8889 55,21.3333 50,28 Z");
   }
 }
 
@@ -238,25 +245,9 @@ h1 {
 }
 
 .hero-bottom {
-  display:grid;
-  grid-template-columns:1fr 1fr 60px;
-  align-items:end;
-  margin-top:35px;
-  gap:20px;
-}
-
-.hero-bottom p {
-  font-family:var(--mono);
-  font-size:17px;
-  line-height:1.35;
-  margin:0;
-}
-
-.hero-bottom .hero-description {
-  font-size:13px;
-  justify-self:end;
-  margin-right:6vw;
-  color:var(--muted);
+  position:absolute;
+  right:var(--gutter);
+  bottom:65px;
 }
 
 .round-link {
@@ -833,13 +824,6 @@ dialog::backdrop {
   .hero h1 {
     margin-top:45px;
   }
-  .hero-bottom {
-    grid-template-columns:1fr 1fr 50px;
-  }
-  .hero-bottom .hero-description {
-    margin-right:0;
-    font-size:11px;
-  }
   .round-link {
     width:46px;
     height:46px;
@@ -916,14 +900,7 @@ dialog::backdrop {
     margin:40px 0 25px;
   }
   .hero-bottom {
-    grid-template-columns:1fr 44px;
-    gap:14px;
-  }
-  .hero-bottom p {
-    font-size:14px;
-  }
-  .hero-bottom .hero-description {
-    display:none;
+    bottom:50px;
   }
   .round-link {
     width:40px;
