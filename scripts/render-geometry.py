@@ -1,7 +1,4 @@
-"""Render actual A3D node outputs. Run with Blender --factory-startup -b --python.
-
-The toolkit is read only. Intermediate frames and the scene go to .media-tools.
-"""
+"""Render A3D geometry studies with Blender."""
 import sys
 from pathlib import Path
 import json
@@ -19,7 +16,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
 
-# An asymmetric concave outline: the narrow neck splits before the lobes vanish.
+# Split the concave outline at its narrow neck.
 polygon = [(-3,-2), (0,-2), (0,-.6), (1.4,-.6), (1.4,-1.7),
            (4,-1.7), (4,2), (1.4,2), (1.4,.6), (0,.6), (0,2.6), (-3,2.6)]
 curve = bpy.data.curves.new('Source polygon', 'CURVE')
@@ -127,7 +124,7 @@ for frame in range(144):
         data = obj.data
         bpy.data.objects.remove(obj, do_unlink=True)
         bpy.data.curves.remove(data)
-    # Pause on the complete skeleton, then restart cleanly on loop.
+    # Pause on the completed skeleton before looping.
     t = max(0, min(1, (frame-12)/108)) * (max(so) + .06)
     wave_node.inputs['Distance'].default_value = t
     wave_node.id_data.update_tag()

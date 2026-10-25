@@ -1,182 +1,25 @@
-# Ashlee Alaniz — Art × Systems
+# Build the site
 
-A graphic, image-led portfolio with a curated homepage, all 55 archived works,
-discipline filters, and an accessible image/video viewer. Plain HTML, CSS, and
-JavaScript. No package manager, framework, or build step.
+The site uses plain HTML, CSS, and JavaScript. No dependencies or compilation are required.
 
-## Preview
+## Run locally
 
-Run `python -m http.server 8000 --bind localhost` in this folder and open
-<http://localhost:8000>. You can also open `index.html` directly.
+Install Python 3, clone this repository, and run from the repository folder:
 
-## Make it yours
-
-| File | What to edit |
-| --- | --- |
-| `projects.js` | Project titles, descriptions, images, links, categories, and ordering |
-| `index.html` | Introduction, availability, biography, email, and static headings |
-| `styles.css` | Colors and spacing in the first `:root` block; layouts below |
-| `app.js` | Filters and artwork viewer behavior; usually no need to touch |
-
-### Choose the homepage work
-
-At the top of `projects.js`, `selected` is the ordered list of project IDs shown
-on the homepage. Move IDs to reorder the work. Add or remove IDs to change the
-selection. The `hero` ID controls the large featured image, title, and category.
-Add an `alt` field to its project for a more descriptive image label. The banner
-is cropped; `heroPosition` (for example `"50% 60%"`) sets its focal point.
-The gallery and expanded viewer continue to show the complete artwork.
-
-### Add or edit a project
-
-Copy an object in the `projects` array in `projects.js`, separated by a comma:
-
-```js
-{
-  "id": "my-new-project",
-  "title": "My new project",
-  "category": "concept-art",
-  "description": "My role, process, and context.",
-  "image": "./assets/my-project.webp",
-  "fullImage": "./assets/my-project-full.webp",
-  "alt": "A short description of the artwork",
-  "link": "https://example.com/project"
-}
+```sh
+python -m http.server 8000 --bind localhost
 ```
 
-Use a unique permanent ID. Category must match an ID in `categories`.
-`fullImage`, `alt`, and `link` are optional. Add `"video": "YOUTUBE_VIDEO_ID"`
-to show a video instead of a full-size image. Add the ID to `selected` if you
-want it on the curated homepage. All work and category counts update automatically.
+Open [localhost:8000](http://localhost:8000).
 
-Put new public images in `assets/` and commit that folder. Keep paths relative
-so they work under GitHub Pages' `/portfolio/` path. Existing artworks use optimized, self-hosted WebP copies in `assets/work/`,
-so images do not depend on the old Portfoliobox site. Local video previews live in
-`assets/videos/`; hosted videos use YouTube’s privacy-enhanced player and load
-only when a project is opened.
+## Customize
 
-Some untitled works have descriptive editorial labels or numbered study labels.
+- Edit `projects.js` for artwork, categories, and the selected project order.
+- Edit `index.html` for page content and `styles.css` for appearance.
+- Put images, videos, and fonts in `assets/`. Use relative asset paths.
 
-## Publish on GitHub Pages
+## Publish
 
-In GitHub, choose **Settings → Pages → Source → GitHub Actions**. Commit and push
-to `main`. The deployment workflow publishes `index.html`, `styles.css`,
-`projects.js`, `app.js`, and an optional `assets/` folder. No secrets are needed.
-You can also run the workflow manually from the Actions tab.
+Upload `index.html`, `styles.css`, all root JavaScript files, and `assets/` to a static web host.
 
-## Browser cache
-
-The deployment workflow versions the CSS and JavaScript URLs with the commit SHA,
-so visitors receive matching files after each update. Keep the `?v=...` query
-strings on the asset references in `index.html`. For an already-open page with
-stale styles, press Ctrl+Shift+R once to reload all files.
-
-## Writing style
-
-Use Art × Systems as the primary visual identity and Let’s Make Something as
-the contact call to action. Keep supporting copy factual
-and concise: role, discipline, responsibilities, process, tools, and availability.
-Let typography, layout, imagery, and the 3d signature provide personality. Avoid
-repeated slogans, promotional claims, and invented studio or department labels.
-Preserve original artwork titles.
-
-## Typography
-
-Space Grotesk is used for headings, body copy, and the wordmark. IBM Plex Mono
-is used for metadata and the 3d signature. Both families are self-hosted in
-`assets/fonts/`, with their open licenses. Edit `--sans` and `--mono` in
-`styles.css` to change the pairing.
-
-## Headline hover effect
-
-Hover an individual character in Art × Systems to trigger a timed font sequence.
-It starts after 100 ms, changes quickly, then slows down and restores the original
-font after 1,200 ms. Each character completes independently, including after the
-pointer moves away. Hovering again during a sequence does not restart it.
-Character widths stay fixed to prevent layout shifts. The effect is disabled on
-touch-only devices and for reduced-motion preferences. Edit `timing` and the
-`fonts` list inside `setupHeadlineGlitch()` in `app.js` to adjust it.
-
-Use title case for artwork and project names, sentence case for interface labels,
-headings, and role descriptions. Preserve official names, acronyms, and the
-intentional lowercase ashlee3dee / 3d branding. Uppercase display treatments
-are controlled in CSS.
-
-## Adaptive gallery
-
-The gallery groups images into justified rows using each image’s aspect ratio.
-Portraits get narrower tiles; landscapes get wider tiles. Images are never
-cropped. Row breaks update automatically when filtering or resizing, with a
-single column on narrow screens. `imageWidth` and `imageHeight` reserve space
-before images load; new images without these fields are measured on load.
-Adjust `targetHeight` and `maxPerRow` in `layoutProjects()` in `app.js` to tune
-the tiling. Project order remains the order in `projects.js`.
-
-## Computational geometry
-
-The Computational geometry work tab presents the A3D toolkit's straight skeleton
-and wavefront offset as a single video panel with a title and paragraph. It is
-hidden on Selected, All work, and the other discipline tabs. Add future studies
-as sibling articles inside `#geometry`. Videos in `assets/geometry/` are rendered from the actual
-Geometry Nodes outputs, with a gray input boundary, red active wavefront, and
-black vertex traces. Native controls support pausing and seeking; the overview
-starts on first visibility unless reduced motion is requested.
-
-`scripts/render-geometry.py` builds only the required source groups in a fresh
-Blender session. Adjust its `TOOLKIT` path to regenerate from another checkout:
-
-```powershell
-& '<blender.exe>' --factory-startup -b --python scripts/render-geometry.py
-```
-
-It writes PNG frames, evaluated geometry JSON, and an inspection `.blend` under
-ignored `.media-tools/geometry/`, without editing the toolkit or its build.
-The published clips use H.264, yuv420p, and fast-start MP4. The overview is 144
-frames at 24 fps, with frame 70 used for the poster. The render is a presentation
-study, not a benchmark.
-
-The XPBD panel uses `scripts/render-xpbd.py`, evaluating the actual
-`A3D_XPBD Solver` simulation group once per displayed frame at 24 fps, with 12
-internal time substeps and 6 constraint iterations. The solver automatically
-retains the previous collider and interpolates matching topology and point
-order across substeps. No external substep loop is required in normal mode.
-The low-level `A3D_XPBD Solver Step` also accepts an optional Previous Collision
-Mesh for callers managing their own state. Empty or changed-size history uses
-the current collider.
-
-The study uses a triangulated 41×41 mesh (1,681 vertices), four fixed corners,
-and gravity. A radius-0.85 sphere moves up and down along Z, the initial cloth
-normal. Surface collision uses two projection passes per substep; contact
-friction is enabled and pressure is disabled. The script checks constant
-topology, finite positions, fixed anchors, visible deformation, and sphere
-contact, with a small radial tolerance for the faceted physics collider.
-
-The visible sphere, anchors, and mesh tubes use smooth shading. An emission
-material quantizes a directional normal term into three flat toon bands.
-Cycles uses 16 antialiasing samples and no light bounces. The visible sphere
-has its own mesh copy so rendering normals do not change the physics collider.
-Intermediate trajectories, metrics, frames, and the inspection scene are in
-ignored `.media-tools/xpbd-native-toon/`; `--render-only` reuses that validated
-trajectory when changing presentation. Published media lives in `assets/geometry/`.
-
-For diagnosis, `--step-mode --motion-steps 1 --diagnose` reproduces the old
-frame-frozen collider setup; `--step-mode --motion-steps 12 --diagnose` evaluates
-collider motion externally with the same total integration/constraint budget.
-Diagnostic trajectories and motion metrics go to `.media-tools/xpbd-motion-<steps>/`.
-
-The fluid panel uses `scripts/render-fluid.py` to evaluate the toolkit's
-`A3D_2D Navier Stokes Solver` at 512×512 resolution, 128 pressure iterations,
-and 24 fps, evaluating and rendering every node result once per frame. A Blender Checker Texture node feeds only the Color input
-across the full grid. The fluid starts at rest; the animated theme-red sphere
-provides the disturbance through External Object. A separate surface mesh
-displays the advected black/cream Color field using an `ink_density` attribute. The sphere uses
-smooth normals with three toon bands on the theme cream background. Frames, field
-data, metrics, and the inspection blend are in ignored `.media-tools/fluid-checker-wide-orbit/`.
-Use `--render-only` to reuse the cached trajectory. Render scripts are ignored
-through `scripts/` in `.gitignore`.
-
-Fluid node settings use the supplied screenshot, with solver Damping disabled: Scale 1, Damping 0.0,
-Velocity (0, 0, 0), Pressure 0, Density 0, External enabled, External Dampening
-0.001, and External Collision Proximity 0.010. The Checker Texture feeds Color.
-
-The fluid stirrer orbit has X/Y radii 0.2375/0.20, enlarged 25% from 0.19/0.16.
+For GitHub Pages, set **Settings → Pages → Source → GitHub Actions**, then push to `main`. The included workflow packages and deploys the site automatically.

@@ -1,5 +1,4 @@
-/* Coarse edge-tangent field: scalar-image gradients, sign-aware smoothing,
- * and a cursor vortex. No external rendering dependencies. */
+/* Glyph-driven flow field and pointer waves. */
 (() => {
   const canvas = document.querySelector('.flow-canvas');
   const hero = canvas?.closest('.hero');
@@ -15,7 +14,7 @@
   const heading = hero.querySelector('#hero-title');
   function textInfluence() {
     const mask = document.createElement('canvas');
-    // Rasterize the actual laid-out glyphs, including their fixed glitch cells.
+    // Rasterize glyphs at their displayed positions.
     const scale = 2;
     mask.width = Math.ceil(width / scale); mask.height = Math.ceil(height / scale);
     const paint = mask.getContext('2d', { willReadFrequently: true });
@@ -40,7 +39,7 @@
         paint.fillText(character, rect.left - origin.left, baseline);
       }
     }
-    // Blur the glyph mask to extend edge influence into the surrounding space.
+    // Blur the mask to extend glyph influence.
     const soft = document.createElement('canvas');
     soft.width = mask.width; soft.height = mask.height;
     const blur = soft.getContext('2d', { willReadFrequently: true });
@@ -57,7 +56,7 @@
     cols = Math.ceil(width / spacing) + 1;
     rows = Math.ceil(height / spacing) + 1;
     const ink = textInfluence();
-    // Glyph gradients dominate near letters; ambient contours fill empty space.
+    // Blend glyph gradients with ambient contours.
     const sample = (x, y) => ink(x, y) * 12 + .3 * (Math.sin(x * .012 + Math.sin(y * .009) * 1.7) +
       .65 * Math.cos(y * .016 - x * .004) + .3 * Math.sin((x + y) * .021));
     field = Array.from({ length: cols * rows }, (_, i) => {
@@ -104,7 +103,7 @@
       const blend = p.response * .95;
       let tx = p.tx * (1 - blend) + vx * blend;
       let ty = p.ty * (1 - blend) + vy * blend;
-      // Align the lingering streak to cursor travel, respecting tangent symmetry.
+      // Align cursor trails with tangent direction.
       const sign = tx * p.trailX + ty * p.trailY < 0 ? -1 : 1;
       const streak = p.trail * .9;
       tx = tx * (1 - streak) + p.trailX * sign * streak;
@@ -117,7 +116,7 @@
         const band = Math.exp(-(((radius - age * 260) / 28) ** 2)) * (1 - age / 2.2);
         if (band > wave) {
           wave = band;
-          // Turn strokes tangent to the expanding wavefront.
+          // Align strokes with the wavefront.
           let wx = -ry / Math.max(radius, 1), wy = rx / Math.max(radius, 1);
           if (wx * tx + wy * ty < 0) { wx = -wx; wy = -wy; }
           tx = tx * (1 - band * .9) + wx * band * .9;

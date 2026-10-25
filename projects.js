@@ -1,9 +1,4 @@
-/* YOUR PORTFOLIO CONTENT
- * Edit titles and descriptions below. Move IDs in `selected` to reorder the homepage.
- * Add a project by copying an existing project object. `category` must match a category ID.
- * `image` is the public image URL; localImage/localFull/localVideo are optional offline copies.
- * Keep a unique, permanent `id` for every project. No build step or packages required.
- */
+/* Project content and homepage selection. */
 window.PORTFOLIO = {
   "hero": "orbital-spaceport-i",
   "selected": [
