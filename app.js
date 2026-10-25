@@ -1,20 +1,22 @@
 /* Layout and interactions. Edit projects.js to maintain portfolio content. */
 (() => {
   const data = window.PORTFOLIO;
-  // Start the overview once it is visible. Native controls retain pause/seeking.
-  const geometryVideo = document.querySelector('.geometry-video');
-  if (geometryVideo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  // Start each study on first visibility, retaining native playback controls.
+  const geometryVideos = [...document.querySelectorAll('.geometry-video')];
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const videoObserver = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) {
-        geometryVideo.play().catch(() => {});
-        videoObserver.disconnect();
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.play().catch(() => {});
+          videoObserver.unobserve(entry.target);
+        }
       }
     }, { threshold: 0.35 });
-    videoObserver.observe(geometryVideo);
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) geometryVideo.pause();
-    });
+    geometryVideos.forEach(video => videoObserver.observe(video));
   }
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) geometryVideos.forEach(video => video.pause());
+  });
   const grid = document.querySelector('#project-grid');
   const dialog = document.querySelector('#project-dialog');
   const media = document.querySelector('#dialog-media');
@@ -125,11 +127,12 @@
     period.className = 'red';
     period.textContent = '.';
     workTitle.replaceChildren(sectionTitle, period);
-    if (!geometryActive) geometryVideo?.pause();
+    if (!geometryActive) geometryVideos.forEach(video => video.pause());
     if (geometryActive) {
       visible = [];
       for (const button of document.querySelectorAll('.filter')) button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
-      document.querySelector('#result-count').textContent = '01 / Study';
+      const studies = document.querySelectorAll('.geometry-study').length;
+      document.querySelector('#result-count').textContent = `${String(studies).padStart(2, '0')} / Studies`;
       return;
     }
     visible = filter === 'selected' ? data.selected.map(id => all.find(p => p.id === id)).filter(Boolean) : all.filter(p => filter === 'all' || p.category === filter);

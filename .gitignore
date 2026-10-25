@@ -3,3 +3,5 @@
 preview-server*.log
 preview-mobile.html
 __pycache__/
+
+scripts/

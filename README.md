@@ -134,3 +134,43 @@ ignored `.media-tools/geometry/`, without editing the toolkit or its build.
 The published clips use H.264, yuv420p, and fast-start MP4. The overview is 144
 frames at 24 fps, with frame 70 used for the poster. The render is a presentation
 study, not a benchmark.
+
+The XPBD panel uses `scripts/render-xpbd.py`, evaluating the actual
+`A3D_XPBD Solver` simulation group once per displayed frame at 24 fps, with 12
+internal time substeps and 6 constraint iterations. The solver automatically
+retains the previous collider and interpolates matching topology and point
+order across substeps. No external substep loop is required in normal mode.
+The low-level `A3D_XPBD Solver Step` also accepts an optional Previous Collision
+Mesh for callers managing their own state. Empty or changed-size history uses
+the current collider.
+
+The study uses a triangulated 41×41 mesh (1,681 vertices), four fixed corners,
+and gravity. A radius-0.85 sphere moves up and down along Z, the initial cloth
+normal. Surface collision uses two projection passes per substep; contact
+friction is enabled and pressure is disabled. The script checks constant
+topology, finite positions, fixed anchors, visible deformation, and sphere
+contact, with a small radial tolerance for the faceted physics collider.
+
+The visible sphere, anchors, and mesh tubes use smooth shading. An emission
+material quantizes a directional normal term into three flat toon bands.
+Cycles uses 16 antialiasing samples and no light bounces. The visible sphere
+has its own mesh copy so rendering normals do not change the physics collider.
+Intermediate trajectories, metrics, frames, and the inspection scene are in
+ignored `.media-tools/xpbd-native-toon/`; `--render-only` reuses that validated
+trajectory when changing presentation. Published media lives in `assets/geometry/`.
+
+For diagnosis, `--step-mode --motion-steps 1 --diagnose` reproduces the old
+frame-frozen collider setup; `--step-mode --motion-steps 12 --diagnose` evaluates
+collider motion externally with the same total integration/constraint budget.
+Diagnostic trajectories and motion metrics go to `.media-tools/xpbd-motion-<steps>/`.
+
+The fluid panel uses `scripts/render-fluid.py` to evaluate the toolkit's
+`A3D_2D Navier Stokes Solver` at 192×192 resolution, 64 pressure iterations,
+and 24 fps. A Blender Checker Texture node seeds the Density and Color inputs
+across the full grid. The fluid starts at rest; the animated orange sphere
+provides the disturbance through External Object. A separate surface mesh
+displays advected density using an `ink_density` attribute. The sphere uses
+smooth normals with three toon bands on a white background. Frames, field
+data, metrics, and the inspection blend are in ignored `.media-tools/fluid-checker/`.
+Use `--render-only` to reuse the cached trajectory. Render scripts are ignored
+through `scripts/` in `.gitignore`.

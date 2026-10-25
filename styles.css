@@ -160,7 +160,14 @@ img {
 
 .hero {
   position:relative;
+  isolation:isolate;
+  overflow:hidden;
   padding:32px var(--gutter) 36px;
+}
+
+.flow-canvas {
+  display:block;
+  z-index:-1;
 }
 
 .hero-top {
@@ -1062,6 +1069,7 @@ dialog::backdrop {
 
 /* Computational geometry is a dedicated work tab, with one panel per study. */
 .geometry-panel[hidden], .project-grid[hidden], .archive-action[hidden] { display:none; }
+.geometry-study + .geometry-study { margin-top:28px; }
 .geometry-study { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); border:1px solid var(--line); }
 .geometry-video { display:block; width:100%; height:auto; background:var(--paper); }
 .geometry-caption { align-self:center; padding:clamp(24px,4vw,56px); }

@@ -30,7 +30,7 @@ jobs:
       - name: Prepare website
         run: |
           mkdir -p _site
-          cp index.html styles.css projects.js app.js _site/
+          cp index.html styles.css projects.js app.js hero-flow.js _site/
           # Version CSS/JS on every deployment to avoid stale browser caches.
           sed -E -i "s/\?v=[A-Za-z0-9_-]+/?v=${GITHUB_SHA}/g" _site/index.html
           if [ -d assets ]; then cp -R assets _site/; fi
