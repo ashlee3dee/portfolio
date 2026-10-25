@@ -1,0 +1,32 @@
+{
+  "assets\\work\\bagacam.jpg": {
+    "archiveId": "1BVswuOUkPPBMlMT",
+    "sha256": "ba726d525929520c385805547594416cf1b8055fa407900688d8829465877389",
+    "image": "./assets/work/1BVswuOUkPPBMlMT.webp",
+    "fullImage": "./assets/work/1BVswuOUkPPBMlMT-full.webp",
+    "imageWidth": 1200,
+    "imageHeight": 697,
+    "fullImageWidth": 1200,
+    "fullImageHeight": 697
+  },
+  "assets\\work\\pQYxspAjNqd61Hw-full.webp": {
+    "archiveId": "J4Gd39pbWKnyyRqU",
+    "sha256": "28288d4ab86bbbdda3d5983478d3272796ba9bc6305922848a7bdcbf48851906",
+    "image": "./assets/work/J4Gd39pbWKnyyRqU.webp",
+    "fullImage": "./assets/work/J4Gd39pbWKnyyRqU-full.webp",
+    "imageWidth": 1400,
+    "imageHeight": 796,
+    "fullImageWidth": 1920,
+    "fullImageHeight": 1091
+  },
+  "assets\\work\\pQYxspAjNqd61Hw.webp": {
+    "archiveId": "FEixd6THG8oTAJ3G",
+    "sha256": "2d5a2298f716042695e927b06cf198e5240e2783539b72d6540039b957b3eed6",
+    "image": "./assets/work/FEixd6THG8oTAJ3G.webp",
+    "fullImage": "./assets/work/FEixd6THG8oTAJ3G-full.webp",
+    "imageWidth": 1400,
+    "imageHeight": 795,
+    "fullImageWidth": 1400,
+    "fullImageHeight": 795
+  }
+}
