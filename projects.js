@@ -1,6 +1,6 @@
 /* Project content and homepage selection. */
 window.PORTFOLIO = {
-  "hero": "future-city-i-header",
+  "hero": "orbital-spaceport-i",
   "selected": [
     "city-of-tomorrow",
     "splatool-painterly-addon",
