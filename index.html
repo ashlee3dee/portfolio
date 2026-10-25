@@ -7,7 +7,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23ed3024' d='M0 0h40v40H0z'/%3E%3Cpath fill='%23f1f0eb' d='m8 30 9-20h6l9 20h-7l-2-5h-8l-2 5z'/%3E%3C/svg%3E">
 <link rel="preload" href="./assets/fonts/space-grotesk-700.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="./assets/fonts/fonts.css">
-<link rel="stylesheet" href="./styles.css?v=20261024-flow"><script src="./projects.js?v=20261024-xpbd-collision-28" defer></script><script src="./app.js?v=20261024-geometric-heart" defer></script>
+<link rel="stylesheet" href="./styles.css?v=20261024-heart-center"><script src="./projects.js?v=20261024-xpbd-collision-28" defer></script><script src="./app.js?v=20261024-heart-center" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#work">Skip to work</a>
@@ -19,7 +19,7 @@
 <main>
 <section class="hero" aria-labelledby="hero-title">
 <canvas class="flow-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" aria-hidden="true"></canvas>
-<script src="./hero-flow.js?v=20261024-trail" defer></script>
+<script src="./hero-flow.js?v=20261024-click-pulse" defer></script>
 <div class="hero-top mono"><span>Ashlee Alaniz / Portfolio</span><span class="availability"><i></i> Available for freelance</span></div>
 <h1 id="hero-title">ART<button class="hero-cross" type="button" aria-label="Send out heart waves"><svg class="hero-cross-symbol" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M50,40 C50,40 18,8 18,8 C18,8 8,18 8,18 C8,18 40,50 40,50 C40,50 8,82 8,82 C8,82 18,92 18,92 C18,92 50,60 50,60 C50,60 82,92 82,92 C82,92 92,82 92,82 C92,82 60,50 60,50 C60,50 92,18 92,18 C92,18 82,8 82,8 C82,8 50,40 50,40 Z"/></svg></button><br><span class="systems">SYSTEMS</span><span class="hero-dot">.</span></h1>
 <div class="hero-bottom"><a class="round-link" href="#work" aria-label="Explore the work">↓</a></div>
@@ -35,15 +35,15 @@
 <div id="geometry" class="geometry-panel" hidden>
 <article class="geometry-study" aria-labelledby="geometry-title">
 <video class="geometry-video" width="1200" height="800" controls loop muted playsinline preload="none" poster="./assets/geometry/wavefront-poster.webp" aria-label="A red polygon wavefront contracts and splits, leaving its straight skeleton in black."><source src="./assets/geometry/wavefront.mp4" type="video/mp4"><a href="./assets/geometry/wavefront.mp4">Download the wavefront animation</a>.</video>
-<div class="geometry-caption"><h3 id="geometry-title">Straight Skeleton &amp; Wavefront Offset</h3><p>A polygon offset tool built on a straight skeleton algorithm in my Blender node toolkit. An event queue implemented in Geometry Nodes handles edge collapses and polygon splits as the wavefront moves inward, tracing the skeleton along the way.</p></div>
+<div class="geometry-caption"><h3 id="geometry-title">Straight Skeleton &amp; Wavefront Offset</h3><p>As a polygon contracts, collapsing edges and splitting boundaries change which vertices are connected. My event-driven wavefront advances to each of these transitions and rebuilds the boundary while preserving the traces that form the straight skeleton. Scale-aware tolerances account for floating-point precision when events coincide.</p></div>
 </article>
 <article class="geometry-study" aria-labelledby="xpbd-title">
 <video class="geometry-video" width="1200" height="800" controls loop muted playsinline preload="none" poster="./assets/geometry/xpbd-native-toon-wide-mid-poster.webp" aria-label="A dense triangulated cloth mesh, pinned at four corners, collides with a red sphere moving vertically through its initial plane."><source src="./assets/geometry/xpbd-native-toon-wide-mid.mp4" type="video/mp4"><a href="./assets/geometry/xpbd-native-toon-wide-mid.mp4">Download the XPBD animation</a>.</video>
-<div class="geometry-caption"><h3 id="xpbd-title">XPBD Solver</h3><p>An extended position-based dynamics solver built in Geometry Nodes for my Blender node toolkit. Compliant distance constraints and surface collision let a dense, pinned cloth mesh drape over a sphere as it moves along the cloth’s initial normal.</p></div>
+<div class="geometry-caption"><h3 id="xpbd-title">XPBD Solver</h3><p>I separated time integration from constraint iterations so cloth motion and stretch could be controlled independently. The solver carries velocity between frames and interpolates the collider’s previous and current geometry across substeps, allowing contact to follow its motion throughout the frame. Compliant distance constraints give the cloth an adjustable resistance to stretching.</p></div>
 </article>
 <article class="geometry-study" aria-labelledby="fluid-title">
-<video class="geometry-video" width="1200" height="800" controls loop muted playsinline preload="none" poster="./assets/geometry/fluid-poster.webp" aria-label="A black-and-white checker grid deforms as an orange toon-shaded sphere stirs the two-dimensional fluid."><source src="./assets/geometry/fluid.mp4" type="video/mp4"><a href="./assets/geometry/fluid.mp4">Download the fluid animation</a>.</video>
-<div class="geometry-caption"><h3 id="fluid-title">2D Fluid Solver</h3><p>A grid-based Navier–Stokes solver built in Geometry Nodes for my Blender node toolkit. A checker texture fills the simulation, making the flow visible as an animated sphere perturbs the velocity field.</p></div>
+<video class="geometry-video" width="1200" height="800" controls loop muted playsinline preload="none" poster="./assets/geometry/fluid-poster.webp?v=20261024-fluid-wide-orbit" aria-label="A black-and-cream checker grid deforms as a theme-red toon-shaded sphere stirs the two-dimensional fluid."><source src="./assets/geometry/fluid.mp4?v=20261024-fluid-wide-orbit" type="video/mp4"><a href="./assets/geometry/fluid.mp4?v=20261024-fluid-wide-orbit">Download the fluid animation</a>.</video>
+<div class="geometry-caption"><h3 id="fluid-title">2D Fluid Solver</h3><p>Geometry attributes hold the fluid’s state; grid-neighbor sampling supplies the spatial relationships needed to evolve it. Each update computes velocity divergence, iterates a pressure solve, and feeds the pressure gradient back into velocity. Keeping those stages in sync lets the moving sphere stir a coherent flow while the pressure solve reduces divergence.</p></div>
 </article>
 </div>
 

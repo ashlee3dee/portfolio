@@ -8,6 +8,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const pointer = { x: -1000, y: -1000 };
   let previousPointer = null;
+  let rings = [];
   let width = 0, height = 0, cols = 0, rows = 0, field = [];
   let frame = 0, last = 0, time = 0, visible = false;
   const spacing = 15;
@@ -88,6 +89,7 @@
     }
   }
   function draw(delta = 0) {
+    rings = reduced.matches ? [] : rings.filter(ring => time - ring.born < 2.2);
     ctx.clearRect(0, 0, width, height);
     ctx.lineWidth = 1;
     ctx.lineCap = 'square';
@@ -107,10 +109,25 @@
       const streak = p.trail * .9;
       tx = tx * (1 - streak) + p.trailX * sign * streak;
       ty = ty * (1 - streak) + p.trailY * sign * streak;
+      let wave = 0;
+      for (const ring of rings) {
+        const age = time - ring.born;
+        const rx = p.x - ring.x, ry = p.y - ring.y;
+        const radius = Math.hypot(rx, ry);
+        const band = Math.exp(-(((radius - age * 260) / 28) ** 2)) * (1 - age / 2.2);
+        if (band > wave) {
+          wave = band;
+          // Turn strokes tangent to the expanding wavefront.
+          let wx = -ry / Math.max(radius, 1), wy = rx / Math.max(radius, 1);
+          if (wx * tx + wy * ty < 0) { wx = -wx; wy = -wy; }
+          tx = tx * (1 - band * .9) + wx * band * .9;
+          ty = ty * (1 - band * .9) + wy * band * .9;
+        }
+      }
       const length = Math.hypot(tx, ty) || 1;
       const pulse = reduced.matches ? 0 : Math.sin(time * 1.3 + p.x * .009 + p.y * .012);
-      const half = (3.5 + p.response * 3 + p.trail * 3 + pulse * .5) / length;
-      const highlight = Math.max(p.response, p.trail);
+      const half = (3.5 + p.response * 3 + p.trail * 3 + wave * 5 + pulse * .5) / length;
+      const highlight = Math.max(p.response, p.trail, wave);
       ctx.strokeStyle = `rgba(${highlight > .08 ? '237,48,36' : '100,101,94'},${.14 + highlight * .38})`;
       ctx.beginPath();
       ctx.moveTo(p.x - tx * half, p.y - ty * half);
@@ -137,6 +154,12 @@
     build(); draw();
   }).observe(hero);
   new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }).observe(hero);
+  hero.addEventListener('click', event => {
+    if (reduced.matches || event.detail === 0) return;
+    const rect = canvas.getBoundingClientRect();
+    rings.push({ x: event.clientX - rect.left, y: event.clientY - rect.top, born: time });
+    rings = rings.slice(-8);
+  });
   hero.addEventListener('pointermove', event => {
     if (event.pointerType === 'touch') return;
     const rect = hero.getBoundingClientRect();

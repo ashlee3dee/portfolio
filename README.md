@@ -165,12 +165,18 @@ collider motion externally with the same total integration/constraint budget.
 Diagnostic trajectories and motion metrics go to `.media-tools/xpbd-motion-<steps>/`.
 
 The fluid panel uses `scripts/render-fluid.py` to evaluate the toolkit's
-`A3D_2D Navier Stokes Solver` at 192×192 resolution, 64 pressure iterations,
-and 24 fps. A Blender Checker Texture node seeds the Density and Color inputs
-across the full grid. The fluid starts at rest; the animated orange sphere
+`A3D_2D Navier Stokes Solver` at 512×512 resolution, 128 pressure iterations,
+and 24 fps, evaluating and rendering every node result once per frame. A Blender Checker Texture node feeds only the Color input
+across the full grid. The fluid starts at rest; the animated theme-red sphere
 provides the disturbance through External Object. A separate surface mesh
-displays advected density using an `ink_density` attribute. The sphere uses
-smooth normals with three toon bands on a white background. Frames, field
-data, metrics, and the inspection blend are in ignored `.media-tools/fluid-checker/`.
+displays the advected black/cream Color field using an `ink_density` attribute. The sphere uses
+smooth normals with three toon bands on the theme cream background. Frames, field
+data, metrics, and the inspection blend are in ignored `.media-tools/fluid-checker-wide-orbit/`.
 Use `--render-only` to reuse the cached trajectory. Render scripts are ignored
 through `scripts/` in `.gitignore`.
+
+Fluid node settings use the supplied screenshot, with solver Damping disabled: Scale 1, Damping 0.0,
+Velocity (0, 0, 0), Pressure 0, Density 0, External enabled, External Dampening
+0.001, and External Collision Proximity 0.010. The Checker Texture feeds Color.
+
+The fluid stirrer orbit has X/Y radii 0.2375/0.20, enlarged 25% from 0.19/0.16.
