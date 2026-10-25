@@ -123,28 +123,31 @@
     if (project.localVideo) {
       const video = document.createElement("video");
 
-      video.controls = true;
-      video.playsInline = true;
-      video.preload = "metadata";
-      video.poster = imageURL(project);
       video.src = project.localVideo;
-
-      video.addEventListener("error", () => {
-        console.error("Video playback error:", {
-          project: project.id,
-          url: video.currentSrc,
-          errorCode: video.error?.code,
-          errorMessage: video.error?.message
-        });
-      });
+      video.poster = imageURL(project);
+      video.controls = true;
+      video.autoplay = true;
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "auto";
+      video.loop = true;
 
       media.append(video);
-      video.load();
+
+      video.play().catch(error => {
+        console.warn("Video autoplay was blocked:", error);
+      });
     } else {
       media.append(imageElement(project, true));
     }
   }
   const changeProject = direction => { activeIndex = (activeIndex + direction + viewerProjects.length) % viewerProjects.length; updateDialog(); };
+  document.querySelector("#project-dialog").addEventListener("close", () => {
+  document.querySelectorAll("#dialog-media video").forEach(video => {
+    video.pause();
+    video.currentTime = 0;
+  });
+});
   document.querySelector('#previous-project').addEventListener('click', () => changeProject(-1));
   document.querySelector('#next-project').addEventListener('click', () => changeProject(1));
   document.querySelector('#dialog-close').addEventListener('click', () => dialog.close());
