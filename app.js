@@ -94,7 +94,7 @@
       mark.textContent = '×';
       arrow.append(mark);
       imageWrap.append(arrow);
-      if (project.video) { const label = document.createElement('span'); label.className = 'media-label'; label.textContent = '▶ Motion'; imageWrap.append(label); }
+      if (project.localVideo) { const label = document.createElement('span'); label.className = 'media-label'; label.textContent = '▶ Motion'; imageWrap.append(label); }
       const caption = document.createElement('div'); caption.className = 'project-caption';
       const text = document.createElement('div'); const title = document.createElement('h3'); title.textContent = project.title;
       const category = document.createElement('p'); category.className = 'mono'; category.textContent = categoriesById.get(project.category);
@@ -120,13 +120,29 @@
     document.querySelector('#dialog-category').textContent = categoriesById.get(project.category);
     document.querySelector('#dialog-position').textContent = `${activeIndex + 1} / ${viewerProjects.length}`;
     const link = document.querySelector('#dialog-external'); link.hidden = !project.link; if (project.link) link.href = project.link;
-    if (project.video) {
-      if (local && project.localVideo) {
-        const video = document.createElement('video'); video.controls = true; video.playsInline = true; video.preload = 'metadata'; video.poster = imageURL(project); video.src = project.localVideo; media.append(video);
-      } else {
-        const iframe = document.createElement('iframe'); iframe.src = `https://www.youtube-nocookie.com/embed/${project.video}`; iframe.title = project.title; iframe.allow = 'fullscreen; picture-in-picture; encrypted-media'; iframe.allowFullscreen = true; media.append(iframe);
-      }
-    } else media.append(imageElement(project, true));
+    if (project.localVideo) {
+      const video = document.createElement("video");
+
+      video.controls = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.poster = imageURL(project);
+      video.src = project.localVideo;
+
+      video.addEventListener("error", () => {
+        console.error("Video playback error:", {
+          project: project.id,
+          url: video.currentSrc,
+          errorCode: video.error?.code,
+          errorMessage: video.error?.message
+        });
+      });
+
+      media.append(video);
+      video.load();
+    } else {
+      media.append(imageElement(project, true));
+    }
   }
   const changeProject = direction => { activeIndex = (activeIndex + direction + viewerProjects.length) % viewerProjects.length; updateDialog(); };
   document.querySelector('#previous-project').addEventListener('click', () => changeProject(-1));

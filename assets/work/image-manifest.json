@@ -28,5 +28,25 @@
     "imageHeight": 795,
     "fullImageWidth": 1400,
     "fullImageHeight": 795
+  },
+  "assets\\work\\still05-9558e7.webp": {
+    "archiveId": "FJkJrk4lPz1xg5UM",
+    "sha256": "bef179350cebcef0263039c16b48367187358f63fe1c33aaad824c44815523c1",
+    "image": "./assets/work/FJkJrk4lPz1xg5UM.webp",
+    "fullImage": "./assets/work/FJkJrk4lPz1xg5UM-full.webp",
+    "imageWidth": 1400,
+    "imageHeight": 788,
+    "fullImageWidth": 1920,
+    "fullImageHeight": 1080
+  },
+  "assets\\work\\buddha-port-0002-154693.jpg": {
+    "archiveId": "vstrNNr9vbAJEyXP",
+    "sha256": "f6e09cc33ff7a514df540197b70ca30683ad9238eca9f50d7585acff325dc1bd",
+    "image": "./assets/work/vstrNNr9vbAJEyXP.webp",
+    "fullImage": "./assets/work/vstrNNr9vbAJEyXP-full.webp",
+    "imageWidth": 1400,
+    "imageHeight": 1399,
+    "fullImageWidth": 1920,
+    "fullImageHeight": 1918
   }
 }
