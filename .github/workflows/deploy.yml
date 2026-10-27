@@ -30,7 +30,7 @@ jobs:
       - name: Prepare website
         run: |
           mkdir -p _site
-          cp index.html styles.css projects.js gallery-layout.js studies.js effects.js app.js hero-flow.js _site/
+          cp index.html styles.css layout-study.css projects.js gallery-layout.js studies.js effects.js app.js hero-flow.js _site/
           # Version assets to refresh browser caches.
           sed -E -i "s/\?v=[A-Za-z0-9_-]+/?v=${GITHUB_SHA}/g" _site/index.html
           if [ -d assets ]; then cp -R assets _site/; fi

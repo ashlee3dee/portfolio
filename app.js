@@ -31,17 +31,6 @@
     img.addEventListener('error', () => { img.src = full ? project.fullImage || project.image : project.image; }, { once: true });
     return img;
   }
-  const hero = projectsById.get(data.hero);
-  const heroImg = document.querySelector('#hero-image');
-  heroImg.src = imageURL(hero, true);
-  heroImg.style.objectPosition = data.heroPosition || '50% 50%';
-  if (hero.imageWidth && hero.imageHeight) { heroImg.width = hero.imageWidth; heroImg.height = hero.imageHeight; }
-  heroImg.alt = hero.alt || hero.title;
-  document.querySelector('#hero-project').setAttribute('aria-label', `View ${hero.title}`);
-  document.querySelector('#feature-title').textContent = hero.title;
-  document.querySelector('#feature-type').textContent = categoriesById.get(hero.category);
-  heroImg.addEventListener('error', () => { heroImg.src = hero.fullImage || hero.image; }, { once: true });
-  document.querySelector('#hero-project').addEventListener('click', () => openProject(hero.id));
   const filters = [{ id: 'selected', label: 'Selected' }, { id: 'all', label: 'All work' }, ...data.categories.map(c => ({ id: c.id, label: c.name })), { id: 'computational-geometry', label: 'Computational geometry' }];
   for (const item of filters) {
     const button = document.createElement('button');
