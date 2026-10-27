@@ -4,10 +4,10 @@ Install: `py -m pip install Pillow`
 
 From the website root:
 
-- Prepare a new image and print project metadata: `py scripts/prepare_images.py "C:\\Images\\render.png"`
-- Prepare a whole folder: `py scripts/prepare_images.py "C:\\Images\\Portfolio"`
-- Update an existing project automatically: `py scripts/prepare_images.py "C:\\Images\\bagacam.png" --project bagacam-osl`
-- Rebuild with custom settings: `py scripts/prepare_images.py render.png --quality 88 --thumb-width 1200 --full-width 2400 --force`
+- Prepare a new image and print project metadata: `py tools/prepare_images.py "C:\\Images\\render.png"`
+- Prepare a whole folder: `py tools/prepare_images.py "C:\\Images\\Portfolio"`
+- Update an existing project automatically: `py tools/prepare_images.py "C:\\Images\\bagacam.png" --project bagacam-osl`
+- Rebuild with custom settings: `py tools/prepare_images.py render.png --quality 88 --thumb-width 1200 --full-width 2400 --force`
 
 Windows shortcut: `scripts\\prepare_images.bat "C:\\Images\\render.png" --project bagacam-osl`
 

@@ -53,6 +53,7 @@
     };
   }
   function build() {
+    if (!width || !height) return;
     cols = Math.ceil(width / spacing) + 1;
     rows = Math.ceil(height / spacing) + 1;
     const ink = textInfluence();

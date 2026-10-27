@@ -14,8 +14,8 @@ PortfolioUI.setupEffects = function () {
     const mark = container?.querySelector('.image-mark');
     if (!mark || markMotion.matches || event.pointerType === 'touch' || activeMark?.element === mark) return;
     stopImageMark();
-    const fonts = ['"IBM Plex Mono", monospace', 'Georgia, serif', 'Impact, sans-serif',
-      '"Times New Roman", serif', '"Trebuchet MS", sans-serif', '"Space Grotesk", sans-serif'];
+    const fonts = ['"IBM Plex Mono", monospace', '"Orbitron", sans-serif', 'Impact, sans-serif',
+      'Arial, sans-serif', '"Trebuchet MS", sans-serif', '"Barlow", sans-serif'];
     let last = fonts.length - 1;
     function changeFont() {
       last = (last + 1 + Math.floor(Math.random() * (fonts.length - 1))) % fonts.length;
@@ -38,8 +38,8 @@ PortfolioUI.setupEffects = function () {
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
     const canHover = matchMedia('(hover: hover) and (pointer: fine)');
     const fonts = ['"IBM Plex Mono", monospace', 'Arial, sans-serif',
-      'Georgia, serif', 'Impact, sans-serif', '"Times New Roman", serif',
-      '"Trebuchet MS", sans-serif', '"Space Grotesk", sans-serif'];
+      '"Orbitron", sans-serif', 'Impact, sans-serif', 'Arial, sans-serif',
+      '"Trebuchet MS", sans-serif', '"Barlow", sans-serif'];
     // Each letter runs its own sequence in milliseconds.
     const timing = { delay: 100, duration: 1200, fastest: 45, slowest: 260 };
     const active = new Map();

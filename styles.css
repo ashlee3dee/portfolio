@@ -6,7 +6,7 @@
   --line:#c8c8c0;
   --muted:#64655e;
   --gutter:clamp(20px,4vw,72px);
-  --sans:'Space Grotesk',Arial,sans-serif;
+  --sans:'Barlow',Arial,sans-serif;
   --mono:'IBM Plex Mono',Consolas,monospace;
 }
 
