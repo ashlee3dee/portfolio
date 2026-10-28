@@ -31,3 +31,7 @@ body text and navigation, and IBM Plex Mono for metadata. Font files and their
 licenses are self-hosted in `assets/fonts/`.
 
 Image preparation tools and instructions live in `tools/`.
+
+The single-page site opens with Art × Systems, followed by the Concept Art and
+Technical Art reels, work gallery, About, and Contact. Sidebar links scroll to each section.
+Video files and preview images live in `assets/reels/`.
