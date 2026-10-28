@@ -193,4 +193,4 @@ main,.footer { margin-left:var(--rail); }
 h2,h3 { font-family:var(--display); font-weight:400; }
 .section-heading h2,.about h2,.geometry-caption h3,.contact h2 { font-weight:400; }
 
-#reels { padding-bottom:24px; }
+.reels-section { padding-bottom:24px; }

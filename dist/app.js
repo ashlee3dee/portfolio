@@ -130,6 +130,13 @@
       video.play().catch(error => {
         console.warn("Video autoplay was blocked:", error);
       });
+    } else if (project.video) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${project.video}`;
+      iframe.title = project.title;
+      iframe.allow = 'fullscreen; picture-in-picture; encrypted-media';
+      iframe.allowFullscreen = true;
+      media.append(iframe);
     } else {
       media.append(imageElement(project, true));
     }

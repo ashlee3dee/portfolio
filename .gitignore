@@ -5,3 +5,9 @@ preview-mobile.html
 __pycache__/
 
 scripts/
+dist/
+_site/
+.venv/
+.portfolio-build-*/
+.test-site-*/
+.legacy-before-folder-build/
