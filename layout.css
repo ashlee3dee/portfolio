@@ -95,7 +95,7 @@ main,.footer { margin-left:var(--rail); }
   margin:64px 0 30px;
 }
 .hero .systems { font-style:normal; letter-spacing:-.025em; }
-.hero-cross { font-size:.76em; margin-left:.16em; vertical-align:.08em; }
+.hero-cross { font-size:.76em; margin-left:.16em; vertical-align:.08em; transform:translateY(-.08em); }
 .hero-dot { font-style:normal; }
 .hero-bottom { bottom:60px; }
 .round-link { width:42px; height:42px; font-size:21px; }
