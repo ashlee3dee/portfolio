@@ -1,0 +1,9 @@
+{
+  "id": "hydraulic-terrain-erosion",
+  "title": "Hydraulic Terrain Erosion",
+  "description": "Simulation done in Blender 4.5 with Geometry Nodes",
+  "alt": "Hydraulic Terrain Erosion",
+  "image": "image.webp",
+  "full_image": "full_image.webp",
+  "video": "video.mp4"
+}

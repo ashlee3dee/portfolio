@@ -1,0 +1,10 @@
+{
+  "id": "straight-skeleton",
+  "title": "Straight Skeleton & Wavefront Offset",
+  "description": "As a polygon contracts, collapsing edges and splitting boundaries change which vertices are connected. My event-driven wavefront advances to each of these transitions and rebuilds the boundary while preserving the traces that form the straight skeleton. Scale-aware tolerances account for floating-point precision when events coincide.",
+  "video": "video.mp4",
+  "poster": "poster.webp",
+  "alt": "A red polygon wavefront contracts and splits, leaving its straight skeleton in black.",
+  "width": 1200,
+  "height": 800
+}

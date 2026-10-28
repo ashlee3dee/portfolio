@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f1f0eb">
+<meta name="description" content="{{description}}">
+<title>{{page_title}}</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23ed3024' d='M0 0h40v40H0z'/%3E%3Cpath fill='%23f1f0eb' d='m8 30 9-20h6l9 20h-7l-2-5h-8l-2 5z'/%3E%3C/svg%3E">
+<link rel="preload" href="./assets/fonts/orbitron-variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="./assets/fonts/fonts.css?v={{version}}">
+<link rel="stylesheet" href="./styles.css?v={{version}}">
+<link rel="stylesheet" href="./layout.css?v={{version}}">
+{{scripts}}
+</head>
+<body>
+<a class="skip-link" href="{{skip_target}}">Skip to content</a>
+<header class="header">
+<a class="wordmark" href="{{home_url}}" aria-label="{{name}} home">{{wordmark}}<span class="wordmark-end">{{signature}}</span></a>
+<div class="header-label mono">{{role}}</div>
+<nav aria-label="Main navigation">{{navigation}}</nav>
+</header>
+<main>
+{{sections}}
+</main>
+<footer class="footer mono"><span>© <span id="year">2026</span> {{name}}</span><span>{{footer}}</span><a href="#">Back to top ↑</a></footer>
+<dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span id="dialog-category" class="mono"></span><button id="dialog-close" class="text-button" aria-label="Close project">Close ×</button></div><div id="dialog-media" class="dialog-media"></div><div class="dialog-info"><div><h2 id="dialog-title"></h2><p id="dialog-subtitle"></p><a id="dialog-external" target="_blank" rel="noopener noreferrer">View project <sup class="dimension-mark" aria-hidden="true">3d</sup></a></div><div class="dialog-navigation"><button id="previous-project" aria-label="Previous project">←</button><span id="dialog-position" class="mono"></span><button id="next-project" aria-label="Next project">→</button></div></div></dialog>
+</body></html>

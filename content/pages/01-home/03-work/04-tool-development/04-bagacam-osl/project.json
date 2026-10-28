@@ -1,0 +1,9 @@
+{
+  "id": "bagacam-osl",
+  "title": "BagaCam — OSL Camera Add-on",
+  "description": "Lead programmer for BagaCam, a Blender add-on that simulates lens effects directly in Cycles with Open Shading Language camera shaders. I spent a month studying optics and translating that research into OSL raymarching techniques for physically inspired distortion, depth of field, chromatic aberration, vignetting, and custom bokeh—giving artists control over the lens itself rather than relying on post-processing.",
+  "alt": "BagaCam optical lens effects demonstration.",
+  "image": "image.webp",
+  "full_image": "full_image.webp",
+  "link": "https://superhivemarket.com/products/bagacam-osl"
+}

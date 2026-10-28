@@ -1,0 +1,16 @@
+{
+  "type": "about",
+  "id": "about",
+  "title": "About",
+  "name": "Ashlee Alaniz",
+  "eyebrow": "02 / About",
+  "navigation": "About",
+  "index": "02",
+  "paragraphs": [
+    "I’m a technical artist and 3D generalist working in lighting, shading, environment art, and tool development.",
+    "I’m self-taught, with a background in additive manufacturing and software engineering. My practice includes procedural workflows and artist tools.",
+    "I’ve worked on projects for Warner Brothers/DC, Honkai: Star Rail, and Nike."
+  ],
+  "toolkit": "Blender / Geometry Nodes / Substance Designer / Unity Shader Graph & VFX Graph / Unreal Blueprints",
+  "availability": "Open to freelance, tutoring, and mentorship"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "fluid-solver",
+  "title": "Navier Stokes Solver",
+  "description": "Geometry attributes hold the fluid’s state; grid-neighbor sampling supplies the spatial relationships needed to evolve it. Each update computes velocity divergence, iterates a pressure solve, and feeds the pressure gradient back into velocity. Keeping those stages in sync lets the moving sphere stir a coherent flow while the pressure solve reduces divergence.",
+  "video": "video.mp4",
+  "poster": "poster.webp",
+  "alt": "A black-and-cream checker grid deforms as a theme-red toon-shaded sphere stirs the two-dimensional fluid.",
+  "width": 1200,
+  "height": 800
+}

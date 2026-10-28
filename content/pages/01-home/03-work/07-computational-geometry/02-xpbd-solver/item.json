@@ -1,0 +1,10 @@
+{
+  "id": "xpbd-solver",
+  "title": "XPBD Solver",
+  "description": "Cloth stiffness can vary with timestep and iteration count, making material behavior difficult to tune. XPBD addresses this by scaling compliance with the inverse squared substep duration and accumulating constraint multipliers across solver iterations. Expressing that solve in Geometry Nodes requires consistent state across edge constraints, vertex corrections, and velocity updates. Moving contact adds a temporal problem: collider geometry must be interpolated across substeps so collision projections follow its motion through the frame.",
+  "video": "video.mp4",
+  "poster": "poster.webp",
+  "alt": "A dense triangulated cloth mesh, pinned at four corners, collides with a red sphere moving vertically through its initial plane.",
+  "width": 1200,
+  "height": 800
+}
