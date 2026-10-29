@@ -5,6 +5,14 @@
   const ctx = canvas?.getContext('2d');
   if (!ctx || !hero) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let flowInk, flowSignal;
+  function readPalette() {
+    const style = getComputedStyle(document.documentElement);
+    flowInk = style.getPropertyValue('--flow-ink-rgb').trim() || '100,101,94';
+    flowSignal = style.getPropertyValue('--flow-signal-rgb').trim() || '237,48,36';
+  }
+  readPalette();
+  document.documentElement.addEventListener('color-mode-change', () => { readPalette(); draw(); });
   const pointer = { x: -1000, y: -1000 };
   let previousPointer = null;
   let rings = [];
@@ -128,7 +136,7 @@
       const pulse = reduced.matches ? 0 : Math.sin(time * 1.3 + p.x * .009 + p.y * .012);
       const half = (3.5 + p.response * 3 + p.trail * 3 + wave * 5 + pulse * .5) / length;
       const highlight = Math.max(p.response, p.trail, wave);
-      ctx.strokeStyle = `rgba(${highlight > .08 ? '237,48,36' : '100,101,94'},${.14 + highlight * .38})`;
+      ctx.strokeStyle = `rgba(${highlight > .08 ? flowSignal : flowInk},${.14 + highlight * .38})`;
       ctx.beginPath();
       ctx.moveTo(p.x - tx * half, p.y - ty * half);
       ctx.lineTo(p.x + tx * half, p.y + ty * half);

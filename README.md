@@ -111,3 +111,8 @@ Major Mono Display is used for ART, Orbitron for SYSTEMS and headings, Barlow fo
 body text, and IBM Plex Mono for metadata. The fonts and licenses are self-hosted
 under `theme/static/assets/fonts/`. Heart, cursor-field, and gallery interactions
 live in `theme/static/` and remain part of every generated page.
+
+The sidebar's Dark mode toggle uses the node-icon gallery's ink/paper/signal
+palette. It follows the system color scheme until a visitor chooses a mode,
+then remembers that choice in browser storage. `color-mode.js` runs before
+styles load; the flow-field colors update with the rest of the interface.

@@ -5,9 +5,31 @@
   --red:#ed3024;
   --line:#c8c8c0;
   --muted:#64655e;
+  --surface:#dfded7;
+  --on-accent:#f1f0eb;
+  --about-bg:#191a18;
+  --about-ink:#f1f0eb;
+  --about-muted:#e1e3da;
+  --about-line:#4e5048;
+  --contact-ink:#191a18;
+  --flow-ink-rgb:100,101,94;
+  --flow-signal-rgb:237,48,36;
+  color-scheme:light;
   --gutter:clamp(20px,4vw,72px);
   --sans:'Barlow',Arial,sans-serif;
   --mono:'IBM Plex Mono',Consolas,monospace;
+}
+
+:root[data-theme="dark"] {
+  --paper:#191a18;
+  --ink:#f1f0eb;
+  --line:#474842;
+  --muted:#adada3;
+  --surface:#242520;
+  --about-bg:#22231f;
+  --about-line:#474842;
+  --flow-ink-rgb:173,173,163;
+  color-scheme:dark;
 }
 
 * {
@@ -33,7 +55,7 @@ body:has(dialog[open]) {
 
 ::selection {
   background:var(--red);
-  color:var(--paper);
+  color:var(--on-accent);
 }
 
 a {
@@ -124,7 +146,7 @@ img {
   justify-content:center;
   margin-left:5px;
   background:var(--red);
-  color:var(--paper);
+  color:var(--on-accent);
   height:1.34em;
   padding:0 .35em;
   font-size:.62em;
@@ -468,7 +490,7 @@ h1 {
 .project-image {
   position:relative;
   overflow:hidden;
-  background:#dfded7;
+  background:var(--surface);
 }
 
 .project-image img {
@@ -557,8 +579,8 @@ h1 {
 }
 
 .about {
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--about-bg);
+  color:var(--about-ink);
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10vw;
@@ -566,7 +588,7 @@ h1 {
 
 .about .section-index {
   font-size:12px;
-  color:var(--paper);
+  color:var(--about-ink);
 }
 
 .about h2 {
@@ -577,7 +599,7 @@ h1 {
 }
 
 .about h2>span {
-  color:#d8dad1;
+  color:var(--about-muted);
 }
 
 .about-mark {
@@ -606,7 +628,7 @@ h1 {
 .about-copy p {
   font-size:18px;
   line-height:1.65;
-  color:#e1e3da;
+  color:var(--about-muted);
   margin:0 0 24px;
 }
 
@@ -614,12 +636,12 @@ h1 {
   font-size:28px;
   line-height:1.4;
   letter-spacing:-.015em;
-  color:var(--paper);
+  color:var(--about-ink);
   margin-top:0;
 }
 
 .tools {
-  border-top:1px solid #4e5048;
+  border-top:1px solid var(--about-line);
   margin-top:32px;
   padding-top:22px;
 }
@@ -627,7 +649,7 @@ h1 {
 .tools h3 {
   font-weight:400;
   font-size:12px;
-  color:var(--paper);
+  color:var(--about-ink);
 }
 
 .tools p {
@@ -648,6 +670,7 @@ h1 {
   padding-top:60px;
   padding-bottom:42px;
   background:var(--red);
+  color:var(--contact-ink);
 }
 
 .contact-top,.contact-bottom {
